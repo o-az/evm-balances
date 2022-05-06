@@ -1,0 +1,17 @@
+.vscode/
+.DS_Store
+node_modules/
+/.cache
+/build
+app/styles
+.scratch
+logs
+run
+coverage
+Dockerfile
+.next
+.gitignore
+package-lock.json
+pnpm-lock.yaml
+dist
+node_modules
