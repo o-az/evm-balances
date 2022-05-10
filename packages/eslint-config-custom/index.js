@@ -12,7 +12,7 @@ module.exports = {
     {
       files: ["**/__tests__/**/*"],
       env: {
-        jest: true,
+       
       },
     },
   ],

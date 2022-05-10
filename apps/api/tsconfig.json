@@ -29,7 +29,6 @@
     "removeComments": true,
     "types": [
       "node",
-      "jest"
     ],
     "paths": {
       "@/*": [
@@ -43,9 +42,6 @@
   ],
   "include": [
     "src",
-    "src/types/environment.d.ts",
-    "src/chain/constants",
-    "./jest.config.ts"
   ],
   "ts-node": {
     "swc": true,
@@ -56,7 +52,7 @@
     ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
       ]
     }
   }

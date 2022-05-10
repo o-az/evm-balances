@@ -1,11 +1,22 @@
 import type { Chain } from '@/types'
 import { ENV_VARIABLES } from '@/config'
+import { networkUrl } from './mapper'
+import fetch from 'isomorphic-unfetch'
+
+interface RpcResponse {
+  jsonrpc: string
+  id: number
+  result?: string
+  error?: { code: number; message: string }
+}
 
 const KEY = ENV_VARIABLES.INFURA_KEY
 
 export async function rpcRequest({ from, to, data, chain }: { from: string; to: string; data: string; chain: Chain }) {
   try {
-    const response = await fetch(`https://${chain}.infura.io/v3/${KEY}`, {
+    const url = networkUrl({ chain, infuraKey: ENV_VARIABLES.INFURA_KEY })
+
+    const response = await fetch(url, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
@@ -18,12 +29,7 @@ export async function rpcRequest({ from, to, data, chain }: { from: string; to: 
     if (!response.ok) {
       throw new Error(`Response not ok: ${response.status} - ${response.statusText}`)
     }
-    const json = (await response.json()) as {
-      jsonrpc: string
-      id: number
-      result?: string
-      error?: { code: number; message: string }
-    }
+    const json: RpcResponse = await response.json()
     if (json.error || !json.result) {
       throw new Error(`JSON error: ${JSON.stringify(json)}`)
     }

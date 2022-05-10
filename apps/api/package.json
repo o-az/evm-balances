@@ -1,45 +1,51 @@
 {
-  "main": "dist/index.js",
+  "main": "./dist/src/index.js",
   "scripts": {
-    "build": "tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
-    "start": "yarn node-options & node dist/index.js",
+    "build": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\" && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
+    "start": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\" && node dist/src/index.js",
     "tsnode": "yarn node-options & ts-node --skip-project -T -r tsconfig-paths/register $npm_config_path",
-    "test": "yarn node-options && node node_modules/.bin/jest --config jest.config.ts",
-    "node-options": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\""
+    "test": "yarn node-options && vitest",
+    "node-options": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\"",
+    "remove-recursive": "find . -name $npm_config_path -type d -prune -exec rm -rf '{}' +"
   },
   "dependencies": {
     "@fastify/swagger": "^6.0.1",
-    "fastify": "^3.29.0"
+    "fastify": "^3.29.0",
+    "isomorphic-unfetch": "^3.1.0"
   },
   "peerDependencies": {
     "openapi-types": "10.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
+    "@babel/preset-typescript": "^7.16.7",
     "@swc/core": "^1.2.177",
-    "@types/jest": "^27.5.0",
+    "@types/babel-core": "^6.25.7",
+    "@types/eslint": "^8.4.2",
     "@types/node": "^17.0.31",
-    "babel-jest": "^28.0.3",
+    "@types/prettier": "^2.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.22.0",
+    "@typescript-eslint/parser": "^5.22.0",
     "dotenv": "^16.0.0",
-    "eslint-config-custom": "*",
-    "jest": "^27.5.0",
-    "jest-environment-node": "^27.5.0",
+    "eslint": "^8.15.0",
+    "eslint-config-prettier": "^8.5.0",
     "pino-pretty": "^7.6.1",
-    "ts-jest": "^27.1.4",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
     "ts-node": "^10.7.0",
     "tsc-alias": "^1.6.7",
-    "tsconfig": "*",
-    "tsconfig-paths": "^3.14.1",
-    "typescript": "^4.6.4"
+    "tsconfig-paths": "^4.0.0",
+    "typescript": "^4.6.4",
+    "vitest": "^0.10.5"
   },
   "engines": {
     "npm": ">=7.0.0",
-    "node": ">=17.0.0",
+    "node": "17.0.0",
     "yarn": ">=1.22.0"
   },
   "engineStrict": true,
   "name": "proxy",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "API proxy",
   "author": "Omar",
   "repository": {

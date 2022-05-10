@@ -16,7 +16,7 @@ export async function getTokensBalances({
 }: {
   address: string
   tokens?: string[]
-  chain: PossibleChainNames
+  chain: PossibleChainNames | Chain
 }): Promise<{ balances: Balance[]; error: string | null }> {
   try {
     if (!ETH_ADDRESS_REGEX.test(address)) {

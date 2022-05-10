@@ -1,6 +1,6 @@
-# fly.toml file generated for empty-hill-3594 on 2022-04-30T10:20:39-05:00
+# fly.toml file generated for evm-balances-api on 2022-05-09T21:46:22-05:00
 
-app = "empty-hill-3594"
+app = "evm-balances-api"
 
 kill_signal = "SIGINT"
 kill_timeout = 5

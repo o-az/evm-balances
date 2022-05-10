@@ -20,13 +20,7 @@ export type Token = {
 }
 
 export type Chain = MainnetChain | TestnetChain
-export type TestnetChain = 'ropsten' | 'rinkeby' | 'polygon-mumbai' | 'bsctestnet'
 
-export type MainnetChain =
-  | 'fantom'
-  | 'polygon-mainnet'
-  | 'ethereum'
-  | 'avalanche'
-  | 'bsc'
-  | 'optimism'
-  | 'arbitrum'
+export type TestnetChain = 'ropsten' | 'rinkeby' | 'polygon-testnet' | 'bsc-testnet' | 'avalance-testnet'
+
+export type MainnetChain = 'bsc' | 'fantom' | 'ethereum' | 'avalanche' | 'polygon' | 'optimism' | 'arbitrum'

@@ -1,8 +1,6 @@
-import { jest } from '@jest/globals'
+import { test, expect } from 'vitest'
 import { getTokensBalances } from '../chain/balance'
 import { POLYGON_CONTRACTS } from '../chain/data'
-
-jest.setTimeout(30000)
 
 const TEST_ADDRESSES = [
   '0x52a258ed593c793251a89bfd36cae158ee9fc4f8',
