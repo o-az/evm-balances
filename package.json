@@ -2,7 +2,7 @@
   "main": "./dist/src/index.js",
   "scripts": {
     "build": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\" && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
-    "start": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\" && node dist/src/index.js",
+    "start": "yarn node-options && yarn build && node dist/src/index.js",
     "tsnode": "yarn node-options & ts-node --skip-project -T -r tsconfig-paths/register $npm_config_path",
     "test": "yarn node-options && vitest",
     "node-options": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\"",
