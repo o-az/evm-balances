@@ -18,7 +18,7 @@ type Token = Record<string, { symbol: string; name: string; decimals: number }>
 function filterTokens(tokens: RequessResponseToken[]) {
   const ethereum = {} as Token
   tokens.map(({ address, symbol, name, decimals }) => {
-    ethereum[address] = { symbol, name, decimals }
+    ethereum[address.toLowerCase()] = { symbol, name, decimals }
   })
 
   return ethereum

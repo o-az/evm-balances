@@ -6,10 +6,10 @@
   },
   "servers": [
     {
-      "url": "http://0.0.0.0:8080/"
+      "url": "http://0.0.0.0:8080"
     },
     {
-      "url": "https://empty-hill-3594.fly.dev/"
+      "url": "https://empty-hill-3594.fly.dev"
     }
   ],
   "security": [

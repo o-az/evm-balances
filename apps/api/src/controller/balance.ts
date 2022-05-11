@@ -16,6 +16,7 @@ export async function getBalance(fastify: FastifyInstance) {
     async function (request, reply: FastifyReply) {
       const { chain, address } = request.params
       const { token } = request.query
+      console.log(token)
       const { balances, error } = await getTokensBalances({
         address,
         chain,
