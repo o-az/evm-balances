@@ -75,7 +75,7 @@ curl GET 'Accept: application/json' https://evm-balances-api.fly.dev/balance/pol
 `POST /balances/{chain}/{address}`
 
 ```sh
-curl POST '0.0.0.0:8080/balances/ethereum/0x72a53cdbbcc1b9efa39c834a540550e23463aacb' \
+curl POST 'https://evm-balances-api.fly.dev/balances/ethereum/0x72a53cdbbcc1b9efa39c834a540550e23463aacb' \
 --header 'Content-Type: application/json' \
 --data-raw '[
     "0x95ad61b0a150d79219dcf64e1e6cc01f0b64c4ce",
@@ -130,7 +130,7 @@ curl POST '0.0.0.0:8080/balances/ethereum/0x72a53cdbbcc1b9efa39c834a540550e23463
 `GET /ping`
 
 ```sh
-curl GET '0.0.0.0:8080/ping'
+curl GET 'https://evm-balances-api.fly.dev/ping'
 ```
 
 ### Response
