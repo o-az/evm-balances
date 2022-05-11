@@ -1,27 +1,15 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify'
 
-import Markdoc from '@markdoc/markdoc'
-
-const source = `# Headers`
-const ast = Markdoc.parse(source)
-const content = Markdoc.transform(ast)
-const htmlRender = `
-  <!DOCTYPE html>
-    <html>
-      <body>
-        ${Markdoc.renderers.html(content)}
-      </body>
-    </html>
-`
-
 interface DocsRequest extends FastifyRequest {
   Params: { docs: string }
 }
 
-export async function docs(fastify: FastifyInstance) {
+export async function getDocs(fastify: FastifyInstance) {
   // GET /
   fastify.get<DocsRequest>('/docs', async function (request, reply: FastifyReply) {
-    reply.header('Content-Type', 'text/html')
-    reply.status(200).send(htmlRender)
+    // redirect to ReDoc for now until a lit doc is ready
+    reply.redirect(`https://redocly.github.io/redoc/?url=https://evm-balances-api.fly.dev/docs/json`)
+    // reply.header('Content-Type', 'text/html')
+    // reply.status(200).send(someHtmlPage)
   })
 }
