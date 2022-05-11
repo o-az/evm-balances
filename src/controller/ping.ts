@@ -1,6 +1,4 @@
 import { FastifyInstance, FastifyRequest, FastifyReply } from 'fastify'
-import { getTokensBalances } from '@/chain/balance'
-import type { PathParams, QueryParams } from '@/types'
 
 interface PingGETRequest extends FastifyRequest {
   Params: { ping: string }

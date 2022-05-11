@@ -9,8 +9,8 @@ module.exports = {
   arrowParens: 'avoid',
   trailingComma: 'es5',
   bracketSpacing: true,
+  bracketSameLine: false,
   quoteProps: 'as-needed',
-  jsxBracketSameLine: false,
   overrides: [
     {
       files: ['*.ts', '*.tsx'],

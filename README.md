@@ -1,10 +1,11 @@
 # README.md is WIP
 
-## Install
+## Steps to run locally
+### Install
 
     yarn
 
-## Run the app
+### Run the app
 
     yarn start
 
@@ -21,7 +22,7 @@ The REST API is described below.
 `GET /balances/{chain}/{address}`
 
 ```sh
-curl GET 'Accept: application/json' http://0.0.0.0:8080/balances/polygon/0xBA12222222228d8Ba445958a75a0704d566BF2C8 | json_pp -json_opt pretty,canonical
+curl GET 'Accept: application/json' https://evm-balances-api.fly.dev/balances/polygon/0xBA12222222228d8Ba445958a75a0704d566BF2C8 | json_pp -json_opt pretty,canonical
 ```
 
 ### Response
@@ -47,7 +48,7 @@ curl GET 'Accept: application/json' http://0.0.0.0:8080/balances/polygon/0xBA122
 ### Request
 
 ```sh
-curl GET 'Accept: application/json' http://0.0.0.0:8080/balance/polygon/0xBA12222222228d8Ba445958a75a0704d566BF2C8?token=0xd6df932a45c0f255f85145f286ea0b292b21c90b | json_pp -json_opt pretty,canonical
+curl GET 'Accept: application/json' https://evm-balances-api.fly.dev/balance/polygon/0xBA12222222228d8Ba445958a75a0704d566BF2C8?token=0xd6df932a45c0f255f85145f286ea0b292b21c90b | json_pp -json_opt pretty,canonical
 ```
 
 ### Response

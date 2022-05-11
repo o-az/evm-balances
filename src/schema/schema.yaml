@@ -4,7 +4,7 @@ info:
   version: 0.1.0
 servers:
   - url: http://0.0.0.0:8080
-  - url: https://empty-hill-3594.fly.dev
+  - url: https://evm-balances-api.fly.dev
 security:
   - BasicAuth: []
 components:
