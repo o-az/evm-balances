@@ -15,7 +15,7 @@
     "@fastify/swagger": "^6.0.1",
     "@markdoc/markdoc": "^0.1.1",
     "fastify": "^3.29.4",
-    "isomorphic-unfetch": "^3.1.0"
+    "isomorphic-unfetch": "^4.0.0"
   },
   "peerDependencies": {
     "openapi-types": "10.0.0"
