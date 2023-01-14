@@ -13,7 +13,7 @@
     "@fastify/cors": "^7.0.0",
     "@fastify/static": "^5.0.2",
     "@fastify/swagger": "^6.0.1",
-    "@markdoc/markdoc": "^0.1.1",
+    "@markdoc/markdoc": "^0.2.0",
     "fastify": "^3.29.4",
     "isomorphic-unfetch": "^3.1.0"
   },
