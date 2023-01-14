@@ -33,7 +33,7 @@
     "dotenv": "^16.0.1",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
-    "pino-pretty": "^7.6.1",
+    "pino-pretty": "^9.0.0",
     "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "ts-node": "^10.7.0",
