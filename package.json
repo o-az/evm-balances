@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@fastify/cors": "^7.0.0",
-    "@fastify/static": "^5.0.2",
+    "@fastify/static": "^6.0.0",
     "@fastify/swagger": "^6.0.1",
     "@markdoc/markdoc": "^0.1.1",
     "fastify": "^3.29.4",
