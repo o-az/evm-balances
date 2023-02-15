@@ -6,9 +6,7 @@ interface PingGETRequest extends FastifyRequest {
 
 export async function ping(fastify: FastifyInstance) {
   // GET /
-  fastify.get<PingGETRequest>('/ping', async function (request, reply: FastifyReply) {
-    const { ping } = request.params;
-
+  fastify.get<PingGETRequest>('/ping', async function (_, reply: FastifyReply) {
     reply.status(200).send({ ping: 'pong' });
   });
 }
