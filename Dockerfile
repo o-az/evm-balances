@@ -9,11 +9,7 @@ WORKDIR /usr/src/app
 COPY . /usr/src/app
 
 # Install dependencies
-RUN apk add --no-cache --update \
-  bash \
-  ca-certificates && \
-  rm -rf /var/cache/apk/* && \
-  npm install --global pnpm@latest && \
+RUN npm install --global pnpm@latest && \
   pnpm install && \
   pnpm build
 
