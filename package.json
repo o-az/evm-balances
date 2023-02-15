@@ -4,7 +4,7 @@
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc --project tsconfig.json && tsc-alias --project tsconfig.json",
-    "start": "node --require tsconfig-paths/register --no-warnings --experimental-json-modules --experimental-import-meta-resolve --experimental-specifier-resolution=node dist/index.js",
+    "start": "node --require tsconfig-paths/register --no-warnings --experimental-json-modules --experimental-import-meta-resolve --experimental-specifier-resolution=node dist/src/index.js",
     "tsnode": "yarn node-options & ts-node --skip-project -T -r tsconfig-paths/register $npm_config_path",
     "test": "yarn node-options && vitest",
     "lint": "eslint --fix . --ext .js,.cjs,.mjs,.ts --cache",
@@ -13,7 +13,6 @@
   },
   "dependencies": {
     "@fastify/cors": "^8.2.0",
-    "@fastify/static": "^6.9.0",
     "@fastify/swagger": "^8.3.1",
     "@markdoc/markdoc": "^0.2.2",
     "fastify": "^4.13.0"
@@ -27,7 +26,6 @@
     "@types/prettier": "^2.7.2",
     "@typescript-eslint/eslint-plugin": "^5.52.0",
     "@typescript-eslint/parser": "^5.52.0",
-    "bun-types": "^0.5.6",
     "dotenv": "^16.0.3",
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
