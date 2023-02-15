@@ -1,7 +1,7 @@
-import { writeFile } from "fs/promises";
+import { writeFile } from 'node:fs/promises';
 
 const BASE_URL =
-  "https://wispy-bird-88a7.uniswap.workers.dev/?url=http://testnet.tokenlist.eth.link";
+  'https://wispy-bird-88a7.uniswap.workers.dev/?url=http://testnet.tokenlist.eth.link';
 
 async function getTokens() {
   const response = await fetch(BASE_URL);
@@ -10,7 +10,7 @@ async function getTokens() {
     return json;
   } catch (error) {
     console.trace(error);
-    throw new Error("Failed to fetch polygon tokens");
+    throw new Error('Failed to fetch polygon tokens');
   }
 }
 
@@ -29,18 +29,12 @@ function filterTokens(tokens: RopstenToken[]): Token {
 export async function main() {
   const { tokens } = await getTokens();
   const filteredTokens = filterTokens(tokens);
-  await writeFile(
-    "./src/data/tokens/ropsten.json",
-    JSON.stringify(filteredTokens, null, 2)
-  );
+  await writeFile('./src/data/tokens/ropsten.json', JSON.stringify(filteredTokens, null, 2));
   const contracts = Object.keys(filteredTokens);
-  await writeFile(
-    "./src/data/tokens/ropsten-contracts.json",
-    JSON.stringify(contracts, null, 2)
-  );
+  await writeFile('./src/data/tokens/ropsten-contracts.json', JSON.stringify(contracts, null, 2));
 }
 
-main().then((_) => console.log(JSON.stringify(_, null, 2)));
+main().then(_ => console.log(JSON.stringify(_, null, 2)));
 
 interface RopstenResponse {
   name: string;
@@ -48,7 +42,7 @@ interface RopstenResponse {
   keywords: string[];
   tags: Record<string, string>;
   timestamp: string;
-  version: Record<"major" | "minor" | "patch", number>;
+  version: Record<'major' | 'minor' | 'patch', number>;
   tokens: RopstenToken[];
 }
 

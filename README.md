@@ -1,6 +1,7 @@
 # README.md is WIP
 
 ## Links
+
 - [Github Repository](https://github.com/o-az/evm-balances-api)
 - [Project Docs](https://example.com)
 - [ReDoc – OpenAPI Documentation](https://redocly.github.io/redoc/?url=https://evm-balances-api.fly.dev/docs/json)

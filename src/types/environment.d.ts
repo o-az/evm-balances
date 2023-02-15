@@ -1,5 +1,5 @@
 declare namespace NodeJS {
   export interface ProcessEnv {
-    INFURA_KEY: string
+    INFURA_KEY: string;
   }
 }

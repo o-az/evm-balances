@@ -1,0 +1,12 @@
+# Ignore everything
+*
+# DON'T ignore the following
+!**/package.json
+!**/tsconfig.json
+!.npmrc
+!.gitignore
+!src
+!scripts
+!**/scripts
+!**/*.sh
+node_modules.*

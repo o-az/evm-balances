@@ -1,12 +1,11 @@
-import { FastifySchema } from 'fastify'
-import { chains } from '@/chain/constants'
-import { POSSIBLE_CHAIN_NAMES } from '@/chain/mapper'
+import { type FastifySchema } from 'fastify';
+import { POSSIBLE_CHAIN_NAMES } from '@/chain/mapper';
 
 const baseSchema: FastifySchema = {
   params: {
     type: 'object',
     additionalProperties: false,
-    errorMessage: 'Invalid params; expected { chain: "polygon-mainnet", address: "0x..." }',
+    // errorMessage: 'Invalid params; expected { chain: "polygon-mainnet", address: "0x..." }',
     required: ['chain', 'address'],
     properties: {
       chain: {
@@ -49,9 +48,9 @@ const baseSchema: FastifySchema = {
       },
     },
   },
-}
+};
 
-const balancesSchema: FastifySchema = { ...baseSchema }
+const balancesSchema: FastifySchema = { ...baseSchema };
 
 const specificBalancesSchema: FastifySchema = {
   ...baseSchema,
@@ -59,18 +58,18 @@ const specificBalancesSchema: FastifySchema = {
     type: 'array',
     items: { type: 'string' },
   },
-}
+};
 
 const balanceSchema: FastifySchema = {
   ...baseSchema,
   querystring: {
     type: 'object',
     additionalProperties: false,
-    errorMessage: 'Invalid querystring; expected { token: "0x..." }',
+    // errorMessage: 'Invalid querystring; expected { token: "0x..." }',
     properties: {
       token: { type: 'string' },
     },
   },
-}
+};
 
-export { balancesSchema, specificBalancesSchema, balanceSchema }
+export { balancesSchema, specificBalancesSchema, balanceSchema };

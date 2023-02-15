@@ -1,11 +1,10 @@
-import { FastifyInstance, FastifyRequest, FastifyReply, FastifySchema } from 'fastify'
-import { getTokensBalances } from '@/chain/balance'
-import { chains } from '@/chain/constants'
-import type { PathParams } from '@/types'
-import { balancesSchema,specificBalancesSchema } from '@/schema'
+import { type FastifyInstance, type FastifyReply, type FastifyRequest } from 'fastify';
+import { getTokensBalances } from '@/chain/balance';
+import type { PathParameters } from '@/types';
+import { balancesSchema, specificBalancesSchema } from '@/schema';
 
 interface IBalancesRequest extends FastifyRequest {
-  Params: PathParams
+  Params: PathParameters;
 }
 
 // checks against top 500 tokens
@@ -15,15 +14,15 @@ export async function getBalances(fastify: FastifyInstance) {
     '/balances/:chain/:address',
     { schema: balancesSchema },
     async function (request, reply: FastifyReply) {
-      const { chain, address } = request.params
-      const { balances, error } = await getTokensBalances({ address, chain })
-      reply.status(error ? 400 : 200).send({ error, balances })
+      const { chain, address } = request.params;
+      const { balances, error } = await getTokensBalances({ address, chain });
+      reply.status(error ? 400 : 200).send({ error, balances });
     }
-  )
+  );
 }
 
 interface ISpecificBalancesRequest extends IBalancesRequest {
-  Body: Array<string>
+  Body: Array<string>;
 }
 
 // takes an array of contract addresses
@@ -33,14 +32,14 @@ export async function getSpecificBalances(fastify: FastifyInstance) {
     '/balances/:chain/:address',
     { schema: specificBalancesSchema },
     async function (request, reply: FastifyReply) {
-      const { chain, address } = request.params
-      const { body: tokens } = request
+      const { chain, address } = request.params;
+      const { body: tokens } = request;
       const { balances, error } = await getTokensBalances({
         address,
         chain,
         tokens,
-      })
-      reply.status(error ? 400 : 200).send({ error, balances })
+      });
+      reply.status(error ? 400 : 200).send({ error, balances });
     }
-  )
+  );
 }
