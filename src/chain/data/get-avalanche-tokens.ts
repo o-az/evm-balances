@@ -1,3 +1,1 @@
-const url = ''
-
-export function getAvalancheTokens() {}
+export {};

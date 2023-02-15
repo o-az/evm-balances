@@ -1,0 +1,18 @@
+{
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "git.enableCommitSigning": true,
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "editor.formatOnSave": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.codeActionsOnSave": { "source.fixAll.eslint": true },
+  "eslint.enable": true,
+  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+  "eslint.options": {
+    "extensions": [".js", ".cjs", ".mjs", ".ts", ".cts", ".mts", ".jsx", ".tsx"]
+  },
+  "yaml.schemas": {
+    "file:///Users/o/.vscode/extensions/docsmsft.docs-yaml-0.2.9/out/yaml-support/toc.schema.json": "/toc\\.yml/i",
+    "https://json.schemastore.org/github-workflow.json": "file:///Users/o/repos/evm-balances-api/.github/workflows/deploy.yml"
+  }
+}

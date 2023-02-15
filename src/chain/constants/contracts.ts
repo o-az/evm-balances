@@ -1,4 +1,4 @@
-import type { Chain } from '@/types'
+import type { Chain } from '@/types';
 
 export const DEPLOYED_CONTRACTS: Record<Chain, string> = {
   bsc: '0x7B1DB2CfCdd3DBd38d3700310CA3c76e94799081',
@@ -13,4 +13,4 @@ export const DEPLOYED_CONTRACTS: Record<Chain, string> = {
   optimism: '0x7B1DB2CfCdd3DBd38d3700310CA3c76e94799081',
   arbitrum: '0x7B1DB2CfCdd3DBd38d3700310CA3c76e94799081',
   fantom: '0x7B1DB2CfCdd3DBd38d3700310CA3c76e94799081',
-}
+};

@@ -1,24 +1,15 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "CommonJS",
-    "composite": false,
-    "declaration": true,
-    "declarationMap": true,
+    "module": "ESNext",
     "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "inlineSources": false,
     "isolatedModules": true,
-    "moduleResolution": "node",
+    "moduleResolution": "Node",
     "outDir": "dist",
     "baseUrl": ".",
     "noImplicitThis": true,
     "noImplicitReturns": true,
     "noImplicitAny": true,
-    "rootDir": ".",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
     "skipLibCheck": true,
     "strict": true,
     "alwaysStrict": true,
@@ -27,34 +18,20 @@
     "forceConsistentCasingInFileNames": true,
     "pretty": true,
     "removeComments": true,
-    "types": [
-      "node",
-    ],
+    "types": ["node"],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
-  "exclude": [
-    "node_modules",
-    "dist",
-    ".scratch"
-  ],
-  "include": [
-    "src",
-  ],
+  "exclude": ["node_modules", "dist", ".scratch", "src/tests"],
+  "include": ["src"],
   "ts-node": {
     "swc": true,
     "esm": true,
     "transpileOnly": true,
-    "require": [
-      "tsconfig-paths/register"
-    ],
+    "require": ["tsconfig-paths/register"],
     "paths": {
-      "@/*": [
-        "src/*"
-      ]
+      "@/*": ["src/*"]
     }
   }
 }

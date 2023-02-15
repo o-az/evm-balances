@@ -1,60 +1,59 @@
 {
   "main": "./dist/src/index.js",
+  "type": "module",
   "scripts": {
-    "build": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\" && tsc --project tsconfig.json && tsc-alias -p tsconfig.json",
-    "start": "yarn clean && yarn node-options && yarn build && node dist/src/index.js",
+    "prebuild": "rm -rf dist",
+    "build": "tsc --project tsconfig.json && tsc-alias --project tsconfig.json",
+    "start": "node --require tsconfig-paths/register --no-warnings --experimental-json-modules --experimental-import-meta-resolve --experimental-specifier-resolution=node dist/index.js",
     "tsnode": "yarn node-options & ts-node --skip-project -T -r tsconfig-paths/register $npm_config_path",
     "test": "yarn node-options && vitest",
-    "node-options": "NODE_OPTIONS=\"--experimental-fetch --no-warnings --experimental-specifier-resolution=node\"",
-    "remove-recursive": "find . -name $npm_config_path -type d -prune -exec rm -rf '{}' +",
-    "clean": "rimraf dist"
+    "lint": "eslint --fix . --ext .js,.cjs,.mjs,.ts --cache",
+    "format": "prettier --config .prettierrc.cjs . --ignore-path .eslintignore --write --ignore-unknown",
+    "clean": "sh ./scripts/clean.sh || true"
   },
   "dependencies": {
-    "@fastify/cors": "^7.0.0",
-    "@fastify/static": "^5.0.2",
-    "@fastify/swagger": "^6.0.1",
-    "@markdoc/markdoc": "^0.1.1",
-    "fastify": "^3.29.4",
-    "isomorphic-unfetch": "^3.1.0"
+    "@fastify/cors": "^8.2.0",
+    "@fastify/static": "^6.9.0",
+    "@fastify/swagger": "^8.3.1",
+    "@markdoc/markdoc": "^0.2.2",
+    "fastify": "^4.13.0"
   },
   "peerDependencies": {
-    "openapi-types": "10.0.0"
+    "openapi-types": "^12.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.10",
-    "@babel/preset-typescript": "^7.16.7",
-    "@swc/core": "^1.2.182",
-    "@types/babel-core": "^6.25.7",
-    "@types/eslint": "^8.4.2",
-    "@types/node": "^17.0.32",
-    "@types/prettier": "^2.6.0",
-    "@typescript-eslint/eslint-plugin": "^5.23.0",
-    "@typescript-eslint/parser": "^5.23.0",
-    "dotenv": "^16.0.1",
-    "eslint": "^8.15.0",
-    "eslint-config-prettier": "^8.5.0",
-    "pino-pretty": "^7.6.1",
-    "prettier": "^2.6.2",
-    "rimraf": "^3.0.2",
-    "ts-node": "^10.7.0",
-    "tsc-alias": "^1.6.7",
-    "tsconfig-paths": "^4.0.0",
-    "typescript": "^4.6.4",
-    "vitest": "^0.12.4"
+    "@types/eslint": "^8.21.1",
+    "@types/node": "^18.13.0",
+    "@types/prettier": "^2.7.2",
+    "@typescript-eslint/eslint-plugin": "^5.52.0",
+    "@typescript-eslint/parser": "^5.52.0",
+    "bun-types": "^0.5.6",
+    "dotenv": "^16.0.3",
+    "eslint": "^8.34.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "eslint-plugin-unicorn": "^45.0.2",
+    "eslint-plugin-unused-imports": "^2.0.0",
+    "pino-pretty": "^9.2.0",
+    "prettier": "^2.8.4",
+    "ts-node": "^10.9.1",
+    "tsc-alias": "^1.8.2",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^4.9.5",
+    "vitest": "^0.28.5"
   },
   "engines": {
-    "npm": ">=7.0.0",
-    "node": "17.0.0",
-    "yarn": ">=1.22.0"
+    "node": "18.14.0",
+    "pnpm": ">=7.27.0",
+    "npm": "use-pnpm",
+    "yarn": "use-pnpm"
   },
   "engineStrict": true,
-  "name": "proxy",
+  "name": "evm-balances-api",
   "version": "0.0.2",
   "description": "API proxy",
-  "author": "Omar",
-  "repository": {
-    "type": "git",
-    "url": ""
-  },
+  "author": "github@omaraziz.dev",
+  "repository": "o-az:evm-balances-api",
   "license": "MIT"
 }

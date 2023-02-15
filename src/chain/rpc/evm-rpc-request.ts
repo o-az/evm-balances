@@ -1,38 +1,48 @@
-import type { Chain } from '@/types'
-import { ENV_VARIABLES } from '@/config'
-import { networkUrl } from '../mapper'
-import { rpcRequest, rpcBatchRequest } from './rpc-request'
-import type { RpcError } from './rpc-request'
+import type { Chain } from '@/types';
+import { ENV_VARIABLES } from '@/config';
+import { networkUrl } from '../mapper';
+import { rpcBatchRequest, rpcRequest } from './rpc-request';
+import type { RpcError } from './rpc-request';
 
-const { INFURA_KEY: infuraKey } = ENV_VARIABLES
-const FROM_ADDRESS = '0x0000000000000000000000000000000000000000'
+const { INFURA_KEY: infuraKey } = ENV_VARIABLES;
+const FROM_ADDRESS = '0x0000000000000000000000000000000000000000';
 
-type EvmRequestParams = { chain: Chain; data: string; contract: string }
+type EvmRequestParameters = { chain: Chain; data: string; contract: string };
 
-type EvmRequest = ({ chain, data, contract }: EvmRequestParams) => Promise<EvmResponse>
+type EvmRequest = ({ chain, data, contract }: EvmRequestParameters) => Promise<EvmResponse>;
 
-type EvmResponse = { result: string | null; error: RpcError | null }
+type EvmResponse = { result: string | null; error: RpcError | null };
 
-type RpcPayloadParams = [{ from: string; to: string; data: string }, 'latest']
+type RpcPayloadParameters = [{ from: string; to: string; data: string }, 'latest'];
 
-export const evmRpcRequest: EvmRequest = async requestParams => {
-  const { chain, data, contract } = requestParams
-  const url = networkUrl({ chain, infuraKey })
-  const params: RpcPayloadParams = [{ from: FROM_ADDRESS, to: contract, data }, 'latest']
+export const evmRpcRequest: EvmRequest = async requestParameters => {
+  const { chain, data, contract } = requestParameters;
+  const url = networkUrl({ chain, infuraKey });
+  const parameters: RpcPayloadParameters = [{ from: FROM_ADDRESS, to: contract, data }, 'latest'];
 
-  const { result, error } = await rpcRequest<RpcPayloadParams>({ url, params })
-  return { result: result ?? null, error: error ?? null }
-}
+  const { result, error } = await rpcRequest<RpcPayloadParameters>({ url, params: parameters });
+  return { result: result ?? null, error: error ?? null };
+};
 
-type EvmBatchRequestParams = { chain: Chain; dataArray: string[]; contract: string }
+type EvmBatchRequestParameters = { chain: Chain; dataArray: string[]; contract: string };
 
-type EvmBatchRequest = ({ chain, dataArray, contract }: EvmBatchRequestParams) => Promise<EvmResponse[]>
+type EvmBatchRequest = ({
+  chain,
+  dataArray,
+  contract,
+}: EvmBatchRequestParameters) => Promise<EvmResponse[]>;
 
-export const evmRpcBatchRequest: EvmBatchRequest = async requestParams => {
-  const { chain, dataArray, contract } = requestParams
-  const url = networkUrl({ chain, infuraKey })
-  const params: RpcPayloadParams[] = dataArray.map(data => [{ from: FROM_ADDRESS, to: contract, data }, 'latest'])
-  const responses = await rpcBatchRequest<RpcPayloadParams>({ url, params })
-  const results = responses.map(({ result, error }) => ({ result: result ?? null, error: error ?? null }))
-  return results
-}
+export const evmRpcBatchRequest: EvmBatchRequest = async requestParameters => {
+  const { chain, dataArray, contract } = requestParameters;
+  const url = networkUrl({ chain, infuraKey });
+  const parameters: RpcPayloadParameters[] = dataArray.map(data => [
+    { from: FROM_ADDRESS, to: contract, data },
+    'latest',
+  ]);
+  const responses = await rpcBatchRequest<RpcPayloadParameters>({ url, params: parameters });
+  const results = responses.map(({ result, error }) => ({
+    result: result ?? null,
+    error: error ?? null,
+  }));
+  return results;
+};

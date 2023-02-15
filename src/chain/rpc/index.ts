@@ -1,1 +1,1 @@
-export * from './evm-rpc-request'
+export * from './evm-rpc-request';
