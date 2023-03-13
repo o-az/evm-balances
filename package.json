@@ -33,7 +33,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-unicorn": "^45.0.2",
     "eslint-plugin-unused-imports": "^2.0.0",
-    "pino-pretty": "^9.2.0",
+    "pino-pretty": "^10.0.0",
     "prettier": "^2.8.4",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.2",
