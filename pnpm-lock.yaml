@@ -14,7 +14,7 @@ specifiers:
   eslint-config-prettier: ^8.6.0
   eslint-plugin-prettier: ^4.2.1
   eslint-plugin-simple-import-sort: ^10.0.0
-  eslint-plugin-unicorn: ^45.0.2
+  eslint-plugin-unicorn: ^46.0.0
   eslint-plugin-unused-imports: ^2.0.0
   fastify: ^4.13.0
   openapi-types: ^12.1.0
@@ -44,7 +44,7 @@ devDependencies:
   eslint-config-prettier: 8.6.0_eslint@8.34.0
   eslint-plugin-prettier: 4.2.1_u5wnrdwibbfomslmnramz52buy
   eslint-plugin-simple-import-sort: 10.0.0_eslint@8.34.0
-  eslint-plugin-unicorn: 45.0.2_eslint@8.34.0
+  eslint-plugin-unicorn: 46.0.0_eslint@8.34.0
   eslint-plugin-unused-imports: 2.0.0_vqeavzxdzk2atb75l6fx3anzpi
   pino-pretty: 9.2.0
   prettier: 2.8.4
@@ -1122,8 +1122,8 @@ packages:
       eslint: 8.34.0
     dev: true
 
-  /eslint-plugin-unicorn/45.0.2_eslint@8.34.0:
-    resolution: {integrity: sha512-Y0WUDXRyGDMcKLiwgL3zSMpHrXI00xmdyixEGIg90gHnj0PcHY4moNv3Ppje/kDivdAy5vUeUr7z211ImPv2gw==}
+  /eslint-plugin-unicorn/46.0.0_eslint@8.34.0:
+    resolution: {integrity: sha512-j07WkC+PFZwk8J33LYp6JMoHa1lXc1u6R45pbSAipjpfpb7KIGr17VE2D685zCxR5VL4cjrl65kTJflziQWMDA==}
     engines: {node: '>=14.18'}
     peerDependencies:
       eslint: '>=8.28.0'
