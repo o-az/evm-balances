@@ -42,7 +42,7 @@
     "vitest": "^0.28.5"
   },
   "engines": {
-    "node": "18.14.0",
+    "node": "18.15.0",
     "pnpm": ">=7.27.0",
     "npm": "use-pnpm",
     "yarn": "use-pnpm"
