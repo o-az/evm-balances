@@ -1,3 +1,40 @@
+#### The smart-contract this API uses is here:
+https://github.com/o-az/evm-balances/blob/master/contracts/MultiCoinBalanceLookup.sol
+
+The main piece:
+```solidity
+contract MultiCoinBalanceLookup {
+
+  // ... for full code, see:
+  // https://github.com/o-az/evm-balances/blob/master/contracts/MultiCoinBalanceLookup.sol
+  
+  // Multiple coins balance lookup
+  function getBalances(address user, address[] calldata tokens) public view returns (uint256[] memory) {
+    uint256[] memory balances = new uint256[](tokens.length);
+    for (uint256 idx = 0; idx < tokens.length; idx++) {
+      if (!isContract({ contractAddress: tokens[idx], user: user })) continue;
+      if (tokens[idx] == address(0x0)) {
+        balances[idx] = user.balance;
+      } else {
+        balances[idx] = Token(tokens[idx]).balanceOf(user);
+      }
+    }
+    return balances;
+  }
+
+  /* Private functions */
+  function isContract(address contractAddress, address user) internal view returns (bool) {
+    // check if contract implements balanceOf function
+    (bool success, ) = contractAddress.staticcall(abi.encodeWithSelector(0x70a08231, user));
+    uint256 codeSize;
+    assembly {
+      codeSize := extcodesize(contractAddress)
+    }
+    return codeSize > 0 && success;
+  }
+}
+```
+____
 ## Links
 
 - [Github Repository](https://github.com/o-az/evm-balances-api)
