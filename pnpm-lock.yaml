@@ -3,7 +3,7 @@ lockfileVersion: 5.4
 specifiers:
   '@fastify/cors': ^8.2.0
   '@fastify/swagger': ^8.3.1
-  '@markdoc/markdoc': ^0.2.2
+  '@markdoc/markdoc': ^0.3.0
   '@types/eslint': ^8.21.1
   '@types/node': ^18.13.0
   '@types/prettier': ^2.7.2
@@ -29,7 +29,7 @@ specifiers:
 dependencies:
   '@fastify/cors': 8.2.0
   '@fastify/swagger': 8.3.1
-  '@markdoc/markdoc': 0.2.2
+  '@markdoc/markdoc': 0.3.0
   fastify: 4.13.0
   openapi-types: 12.1.0
 
@@ -386,8 +386,8 @@ packages:
       '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
-  /@markdoc/markdoc/0.2.2:
-    resolution: {integrity: sha512-0TiD9jmA5h5znN4lxo7HECAu3WieU5g5vUsfByeucrdR/x88hEilpt16EydFyJwJddQ/3w5HQgW7Ovy62r4cyw==}
+  /@markdoc/markdoc/0.3.0:
+    resolution: {integrity: sha512-QWCF8krIIw52ulflfnoff0yG1eKl9CCGA3KAiOjHyYtHNzSEouFh8lO52nAaO3qV2Ctj1GTB8TTb2rTfvISQfA==}
     engines: {node: '>=14.7.0'}
     peerDependencies:
       '@types/react': '*'
