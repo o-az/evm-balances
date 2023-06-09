@@ -1,57 +1,38 @@
 {
-  "main": "./dist/src/index.js",
-  "type": "module",
-  "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "tsc --project tsconfig.json && tsc-alias --project tsconfig.json",
-    "start": "node --require tsconfig-paths/register --no-warnings --experimental-json-modules --experimental-import-meta-resolve --experimental-specifier-resolution=node dist/src/index.js",
-    "tsnode": "yarn node-options & ts-node --skip-project -T -r tsconfig-paths/register $npm_config_path",
-    "test": "yarn node-options && vitest",
-    "lint": "eslint --fix . --ext .js,.cjs,.mjs,.ts --cache",
-    "format": "prettier --config .prettierrc.cjs . --ignore-path .eslintignore --write --ignore-unknown",
-    "clean": "sh ./scripts/clean.sh || true"
-  },
-  "dependencies": {
-    "@fastify/cors": "^8.2.0",
-    "@fastify/swagger": "^8.3.1",
-    "@markdoc/markdoc": "^0.2.2",
-    "fastify": "^4.13.0"
-  },
-  "peerDependencies": {
-    "openapi-types": "^12.1.0"
-  },
-  "devDependencies": {
-    "@types/eslint": "^8.21.1",
-    "@types/node": "^18.13.0",
-    "@types/prettier": "^2.7.2",
-    "@typescript-eslint/eslint-plugin": "^5.52.0",
-    "@typescript-eslint/parser": "^5.52.0",
-    "dotenv": "^16.0.3",
-    "eslint": "^8.34.0",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-unicorn": "^45.0.2",
-    "eslint-plugin-unused-imports": "^2.0.0",
-    "pino-pretty": "^9.2.0",
-    "prettier": "^2.8.4",
-    "ts-node": "^10.9.1",
-    "tsc-alias": "^1.8.2",
-    "tsconfig-paths": "^4.1.2",
-    "typescript": "^4.9.5",
-    "vitest": "^0.28.5"
-  },
-  "engines": {
-    "node": "18.14.0",
-    "pnpm": ">=7.27.0",
-    "npm": "use-pnpm",
-    "yarn": "use-pnpm"
-  },
-  "engineStrict": true,
-  "name": "evm-balances-api",
-  "version": "0.0.2",
-  "description": "API proxy",
-  "author": "github@omaraziz.dev",
-  "repository": "o-az:evm-balances-api",
-  "license": "MIT"
+	"name": "root",
+	"version": "0.0.2",
+	"description": "Smart contract and REST API for getting multiple EVM balances",
+	"author": "github@omaraziz.dev",
+	"repository": "o-az:evm-balances-api",
+	"license": "GPL-3.0-only",
+	"type": "module",
+	
+	"scripts": {
+		"format": "turbo run format && prettier . --write './**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,md,sol}' --ignore-path .gitignore --ignore-path .eslintignore --ignore-unknown",
+		"lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,md' --ignore-path .gitignore --ignore-path .eslintignore --cache",
+		"typecheck": "turbo run typecheck && tsc --noEmit",
+		"clean": "/bin/bash ./scripts/clean.sh"
+	},
+	"devDependencies": {
+		"@turbo/gen": "^1.10.2",
+		"@types/eslint": "^8.40.1",
+		"@types/node": "^20.2.5",
+		"@types/prettier": "^2.7.3",
+		"bun": "^0.6.7",
+		"bun-types": "^0.6.7",
+		"dotenv": "^16.1.4",
+		"eslint": "8.42.0",
+		"eslint-config-base": "workspace:*",
+		"prettier": "^2.8.8",
+		"tsconfig": "workspace:*",
+		"turbo": "^1.10.2",
+		"typescript": "^5.1.3"
+	},
+	"packageManager": "pnpm@8.6.0",
+	"engines": {
+		"node": "18.16.0",
+		"pnpm": ">=8.6.0",
+		"npm": "use-pnpm",
+		"yarn": "use-pnpm"
+	}
 }

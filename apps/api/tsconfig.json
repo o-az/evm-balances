@@ -1,0 +1,13 @@
+{
+	"extends": "tsconfig/base.json",
+	"compilerOptions": {
+		"jsx": "preserve",
+		"jsxFactory": "jsx",
+		"jsxFragmentFactory": "Fragment",
+		"jsxImportSource": "hono/jsx",
+		"baseUrl": ".",
+		"paths": {
+			"#/*": ["./src/*"]
+		}
+	}
+}

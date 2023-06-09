@@ -38,3 +38,24 @@ dist
 .yarnclean
 .scratch/*
 .eslintcache
+
+# Foundry
+cache/
+out/
+
+# JS
+node_modules/
+
+#Hardhat files
+cache_hardhat/
+artifacts/
+
+#Hardhat plugin files
+typechain-types/
+anvil.txt
+c50.json
+abis
+tokens.json
+.DS_Store
+lib
+.turbo
