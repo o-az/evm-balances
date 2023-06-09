@@ -1,0 +1,27 @@
+{
+	"name": "api",
+	"version": "0.0.2",
+	"scripts": {
+		"start": "./node_modules/.bin/bun run --hot src/index.ts",
+		"lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,md' --ignore-path .gitignore --ignore-path .eslintignore --cache",
+		"typecheck": "tsc --noEmit",
+		"clean": "rm -rf .turbo dist"
+	},
+	"dependencies": {
+		"hono": "^3.2.5",
+		"viem": "^1.0.2"
+	},
+	"devDependencies": {
+		"@hono/sentry": "^0.2.1",
+		"@types/eslint": "^8.40.1",
+		"@types/node": "^20.2.5",
+		"@types/prettier": "^2.7.3",
+		"bun": "^0.6.7",
+		"dotenv": "^16.1.4",
+		"eslint": "8.42.0",
+		"eslint-config-base": "workspace:*",
+		"prettier": "^2.8.8",
+		"tsconfig": "workspace:*",
+		"typescript": "^5.1.3"
+	}
+}
