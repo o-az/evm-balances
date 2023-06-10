@@ -24,13 +24,32 @@ module.exports = {
 				},
 			},
 		],
-		'unicorn/no-array-callback-reference': ['off'],
-		'unicorn/prefer-top-level-await': ['off'],
 		'array-element-newline': ['error', 'consistent'],
 		'object-curly-spacing': ['error', 'always'],
+		'no-mixed-operators': ['off'],
+		'no-multiple-empty-lines': ['off'],
+		'no-unexpected-multiline': ['off'],
+		'unicorn/numeric-separators-style': ['error', { number: { minimumDigits: 4 } }],
+		'unicorn/no-array-callback-reference': ['off'],
+		'unicorn/prefer-top-level-await': ['off'],
+		'unicorn/prefer-event-target': ['off'],
+		'unicorn/prevent-abbreviations': [
+			'error',
+			{
+				allowList: {
+					Env: true,
+					ProcessEnv: true,
+				},
+				checkFilenames: false,
+			},
+		],
 		'@typescript-eslint/no-unused-vars': [
 			'warn',
-			{ argsIgnorePattern: '^_', varsIgnorePattern: '^_', caughtErrorsIgnorePattern: '^_' },
+			{
+				argsIgnorePattern: '^_',
+				varsIgnorePattern: '^(?:_.*|NodeJS|ProcessEnv)$',
+				caughtErrorsIgnorePattern: '^_',
+			},
 		],
 		'@typescript-eslint/consistent-type-imports': [
 			'warn',
@@ -39,38 +58,21 @@ module.exports = {
 				fixStyle: 'inline-type-imports',
 			},
 		],
-		'unicorn/prefer-event-target': ['off'],
-		'unicorn/prevent-abbreviations': [
-			'error',
-			{
-				allowList: {
-					ProcessEnv: true,
-				},
-				checkFilenames: false,
-			},
-		],
-		'no-mixed-operators': ['off'],
-		'no-multiple-empty-lines': ['off'],
-		'no-unexpected-multiline': ['off'],
 		'@typescript-eslint/ban-ts-comment': ['off'],
 		'@typescript-eslint/no-empty-interface': [
 			'error',
 			{
-				allowSingleExtends: false,
+				allowSingleExtends: true,
 			},
 		],
 		'@typescript-eslint/ban-types': [
 			'warn',
 			{
 				types: {
+					'{}': false,
 					String: {
 						message: 'Use string instead',
 						fixWith: 'string',
-					},
-
-					'{}': {
-						message: 'Use object instead',
-						fixWith: 'object',
 					},
 				},
 			},

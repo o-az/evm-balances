@@ -16,7 +16,9 @@
 		"allowSyntheticDefaultImports": true,
 		"forceConsistentCasingInFileNames": true,
 		"allowJs": true,
+		"checkJs": true,
 		"baseUrl": ".",
 		"types": ["bun-types", "node"]
-	}
+	},
+	"files": ["reset.d.ts"]
 }

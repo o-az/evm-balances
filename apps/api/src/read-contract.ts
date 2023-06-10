@@ -16,10 +16,6 @@ export const balancesOf = async ({
 	await readContract(client, {
 		abi: <const>[
 			{
-				stateMutability: 'payable',
-				type: 'fallback',
-			},
-			{
 				inputs: [
 					{
 						internalType: 'address',
@@ -42,10 +38,6 @@ export const balancesOf = async ({
 				],
 				stateMutability: 'view',
 				type: 'function',
-			},
-			{
-				stateMutability: 'payable',
-				type: 'receive',
 			},
 		],
 		address: chains[chain]['contract'],
