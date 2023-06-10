@@ -8,6 +8,8 @@
 			"cache": false
 		},
 		"lint": {},
+		"format": {},
+		"typecheck": {},
 		"dev": {
 			"cache": false,
 			"persistent": true

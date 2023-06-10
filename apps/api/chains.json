@@ -97,7 +97,7 @@
 		},
 		"infoURL": "https://cchain.explorer.avax-test.network",
 		"shortName": "Fuji",
-		"chainId": 43113,
+		"chainId": 43_113,
 		"networkId": 1,
 		"explorers": [
 			{
@@ -119,9 +119,9 @@
 		},
 		"infoURL": "https://www.avax.network/",
 		"shortName": "Avalanche",
-		"chainId": 43114,
-		"networkId": 43114,
-		"slip44": 9005,
+		"chainId": 43_114,
+		"networkId": 43_114,
+		"slip44": 9_005,
 		"explorers": [
 			{
 				"name": "snowtrace",
@@ -171,8 +171,8 @@
 		},
 		"infoURL": "https://polygon.technology/",
 		"shortName": "maticmum",
-		"chainId": 80001,
-		"networkId": 80001,
+		"chainId": 80_001,
+		"networkId": 80_001,
 		"explorers": [
 			{
 				"name": "polygonscan",
@@ -213,10 +213,10 @@
 	},
 	{
 		"name": "Arbitrum One",
-		"chainId": 42161,
+		"chainId": 42_161,
 		"shortName": "arb1",
 		"chain": "ETH",
-		"networkId": 42161,
+		"networkId": 42_161,
 		"nativeCurrency": {
 			"name": "Ether",
 			"symbol": "ETH",

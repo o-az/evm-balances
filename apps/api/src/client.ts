@@ -2,14 +2,33 @@ import { createPublicClient, http, fallback } from 'viem'
 import * as chain from 'viem/chains'
 import { chains, type Chain } from './constants'
 
-export const publicClient = (_chain: Chain) =>
-	createPublicClient({
+export function publicClient(_chain: Chain) {
+	const httpTransports = chains[_chain]['rpcUrls']['http'].map(url =>
+		http(url, {
+			key: `HTTP Transport [${_chain}]`,
+			name: `HTTP JSON-RPC [${_chain}]`,
+			retryCount: 3,
+			retryDelay: 125,
+			timeout: 10_000,
+			batch: {
+				batchSize: 1_000,
+				wait: 0,
+			},
+		})
+	)
+	const client = createPublicClient({
 		chain: chain[_chain],
-		transport: fallback(chains[_chain]['rpcUrls'].map(url => http(url))),
+		name: `Public Client [${_chain}]`,
+		transport: fallback(httpTransports, {
+			rank: true,
+		}),
+		pollingInterval: 4_000,
 		batch: {
 			multicall: {
-				batchSize: 1024,
+				batchSize: 1_024,
 				wait: 0,
 			},
 		},
 	})
+	return client
+}

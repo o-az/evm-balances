@@ -1,28 +1,27 @@
-import type { Hono } from 'hono'
-import { logger } from 'hono/logger'
-import { prettyJSON } from 'hono/pretty-json'
+import type { Env, Hono } from 'hono'
 import { cors } from 'hono/cors'
+import { logger } from 'hono/logger'
 import { sentry } from '@hono/sentry'
+import { poweredBy } from 'hono/powered-by'
+import { prettyJSON } from 'hono/pretty-json'
+import { environment } from './environment'
 
-import { compress } from 'hono/compress'
-import { cache } from 'hono/cache'
-
-export function middleware(app: Hono) {
-	app.use(
-		'*',
-		logger(_ => console.info('Request:', _))
-	)
-
-	app.use('*', prettyJSON({ space: 2 }))
-
-	app.use('*', cors({ origin: '*' }))
-
-	app.use(
-		'*',
-		sentry({
-			environment: process.env.NODE_ENV,
-			dsn: process.env.SENTRY_DSN,
-			debug: true,
-		})
-	)
+export function setMiddleware(app: Hono<Env, {}, '/v1'>) {
+	const middleware = [
+		sentry(
+			{
+				dsn: environment('SENTRY_DSN'),
+				environment: environment('NODE_ENV'),
+				debug: environment('NODE_ENV') === 'development',
+			},
+			sentry => {
+				sentry.captureMessage('Sentry caught an error')
+			}
+		),
+		poweredBy(),
+		logger(_ => console.info('Request:', _)),
+		cors({ origin: '*' }),
+		prettyJSON({ space: 2 }),
+	]
+	middleware.forEach(_ => app.use('*', _))
 }

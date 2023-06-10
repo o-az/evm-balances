@@ -5,9 +5,11 @@
 		"jsxFactory": "jsx",
 		"jsxFragmentFactory": "Fragment",
 		"jsxImportSource": "hono/jsx",
+		"noUnusedLocals": false,
+		"noUnusedParameters": false,
 		"baseUrl": ".",
-		"paths": {
-			"#/*": ["./src/*"]
-		}
-	}
+		"types": ["bun-types", "node"]
+	},
+	"include": ["src/**/*", "tsup.config.ts", "tsup.config.ts"],
+	"files": ["environment.d.ts"]
 }
