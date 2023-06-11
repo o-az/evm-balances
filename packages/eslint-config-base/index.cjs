@@ -53,6 +53,7 @@ module.exports = {
 		'unicorn/numeric-separators-style': ['error', { number: { minimumDigits: 4 } }],
 		'unicorn/no-array-callback-reference': ['off'],
 		'unicorn/prefer-top-level-await': ['off'],
+		'unicorn/no-array-for-each': ['off'],
 		'unicorn/prefer-event-target': ['off'],
 		'unicorn/prevent-abbreviations': [
 			'error',

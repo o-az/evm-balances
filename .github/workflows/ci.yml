@@ -1,6 +1,7 @@
 name: CI
 
 on:
+  workflow_dispatch:
   push:
     branches: [master]
 
@@ -15,13 +16,53 @@ defaults:
 env:
   CI: true
   ACTIONS_RUNNER_DEBUG: true
-  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-  FLY_APP_NAME: evm
 
 jobs:
-  Deploy:
-    runs-on: ubuntu-latest
+  deploy:
+    timeout-minutes: 10
+    strategy:
+      matrix:
+        node-version: ['lts/*']
+        pnpm-version: ['latest']
+        os: ['ubuntu-latest']
+    runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - name: 🔑 Checkout
+        uses: actions/checkout@v3
 
-      - run: echo TODO
+      - name: 🥐 Setup pnpm [${{ matrix.pnpm-version}}]
+        uses: pnpm/action-setup@v2.2.4
+        with:
+          version: ${{ matrix.pnpm-version }}
+
+      - name: ⎔ Setup Node.js [${{ matrix.node-version }}]
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: '📦 Install Dependencies'
+        run: pnpm install --frozen-lockfile
+
+      - name: '🧹 Lint'
+        run: pnpm lint
+
+      - name: '🧹 Format'
+        run: pnpm format
+
+      - name: '🧪 Typecheck'
+        run: pnpm typecheck
+
+      - name: '🔧 Build'
+        run: pnpm build
+
+      - name: '🔸 Cloudflare Workers - Deploy 🚀'
+        uses: cloudflare/wrangler-action@2.0.0
+        with:
+          workingDirectory: ./apps/api
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          command: |
+            deploy ./src/index.ts --experimental-json-config --config wrangler.json
+
+          preCommands: echo "Deploying API to Cloudflare Workers"
+          postCommands: echo "Deployed API to Cloudflare Workers"

@@ -3,7 +3,7 @@
 	"version": "0.0.2",
 	"homepage": "https://balance.evm.workers.dev",
 	"scripts": {
-		"dev": "./node_modules/.bin/wrangler dev ./src/index.ts --experimental-json-config --config wrangler.json",
+		"dev": "./node_modules/.bin/wrangler dev --experimental-json-config",
 		"dev:remote": "pnpm dev --remote",
 		"prebuild": "rm -rf dist",
 		"build": "./node_modules/.bin/wrangler deploy --dry-run --experimental-json-config --config wrangler.json --outdir=dist",

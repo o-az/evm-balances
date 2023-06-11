@@ -10,6 +10,6 @@
 		"baseUrl": ".",
 		"types": ["@cloudflare/workers-types"]
 	},
-	"include": ["src/**/*", "../../_/origin-override.ts"],
+	"include": ["src/**/*"],
 	"files": ["environment.d.ts"]
 }

@@ -1,7 +1,10 @@
 {
-	"$schema": "https://gist.githubusercontent.com/o-az/d298a1776165407ba63ee763d32f7a89/raw/f50c6a7fefd38dfbfe23ad41f251144e98caa28f/wrangler.json",
+	"$schema": "https://gist.githubusercontent.com/o-az/d298a1776165407ba63ee763d32f7a89/raw/27a43b34c439cd5752090a5309a1d8544205f064/wrangler.json",
 	"name": "balance",
 	"main": "./src/index.ts",
 	"compatibility_date": "2023-06-10",
-	"compatibility_flags": ["nodejs_compat"]
+	"compatibility_flags": ["nodejs_compat"],
+	"placement": {
+		"mode": "smart"
+	}
 }
