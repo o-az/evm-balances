@@ -6,7 +6,7 @@
 		"_build": "/bin/bash ./scripts/build.sh",
 		"deploy-local": "bun lint && forge build && /bin/bash ./scripts/deploy.sh",
 		"deploy-local-build": "pnpm deploy-local && bun ./scripts/json-to-ts.ts",
-		"lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,md' --ignore-path .gitignore --ignore-path .eslintignore --cache",
+		"lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,yaml,toml' --ignore-path .gitignore --ignore-path .eslintignore --cache",
 		"format": "prettier . --write './**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,md,sol}' --ignore-path .gitignore --ignore-path .eslintignore --ignore-unknown --cache",
 		"typecheck": "tsc --noEmit",
 		"clean": "rm -rf out cache cache_hardhat artifacts"

@@ -8,7 +8,7 @@
 		"prebuild": "rm -rf dist",
 		"build": "./node_modules/.bin/wrangler deploy --dry-run --experimental-json-config --config wrangler.json --outdir=dist",
 		"deploy": "./node_modules/.bin/wrangler deploy ./src/index.ts --experimental-json-config --config wrangler.json",
-		"lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,md' --ignore-path .gitignore --ignore-path .eslintignore --cache",
+		"lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,yaml,toml' --ignore-path .gitignore --ignore-path .eslintignore --cache",
 		"format": "prettier . --write './**/*.{js,cjs,mjs,ts,tsx,json,md,toml,sh}' --ignore-path .gitignore --ignore-path .eslintignore --ignore-unknown --cache",
 		"typecheck": "tsc --noEmit",
 		"clean": "rm -rf .turbo dist .eslintcache node_modules"
