@@ -7,12 +7,33 @@ module.exports = {
 		sourceType: 'module',
 		warnOnUnsupportedTypeScriptVersion: true,
 	},
-	env: { node: true, browser: true },
+	env: {
+		node: true,
+		browser: true,
+	},
 	reportUnusedDisableDirectives: true,
-	extends: ['eslint:recommended', 'plugin:unicorn/all', 'plugin:@typescript-eslint/recommended', 'prettier'],
+	extends: [
+		'eslint:recommended',
+		'plugin:unicorn/all',
+		'plugin:yml/standard',
+		'plugin:@typescript-eslint/recommended',
+		'prettier',
+	],
 	plugins: ['@typescript-eslint', 'prettier'],
 	settings: {},
-	overrides: [],
+	overrides: [
+		{
+			files: ['*.yaml', '*.yml'],
+			parser: 'yaml-eslint-parser',
+			rules: {
+				'yml/quotes': ['off'],
+			},
+		},
+		{
+			files: ['*.toml'],
+			parser: 'toml-eslint-parser',
+		},
+	],
 	rules: {
 		'prettier/prettier': [
 			'warn',

@@ -8,6 +8,7 @@
 	"main": "./index.cjs",
 	"scripts": {
 		"clean": "rm -rf node_modules dist .turbo",
+		"lint": "eslint --fix . --ext='cjs,json' --cache",
 		"reinstall": "pnpm clean && pnpm install"
 	},
 	"dependencies": {
@@ -20,7 +21,7 @@
 		"eslint-plugin-simple-import-sort": "^10.0.0",
 		"eslint-plugin-toml": "^0.5.0",
 		"eslint-plugin-unicorn": "^47.0.0",
-		"eslint-plugin-yaml": "^0.5.0",
+		"eslint-plugin-yml": "^1.7.0",
 		"toml-eslint-parser": "^0.6.0"
 	}
 }

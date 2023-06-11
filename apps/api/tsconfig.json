@@ -8,7 +8,7 @@
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"baseUrl": ".",
-		"types": ["@cloudflare/workers-types", "node"]
+		"types": ["@cloudflare/workers-types"]
 	},
 	"include": ["src/**/*", "../../_/origin-override.ts"],
 	"files": ["environment.d.ts"]
