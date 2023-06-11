@@ -29,6 +29,7 @@
 		"bun": "^0.6.8",
 		"bun-types": "^0.6.8",
 		"eslint": "8.42.0",
+		"prettier-plugin-toml": "^0.3.1",
 		"eslint-config-base": "workspace:*",
 		"prettier": "^2.8.8",
 		"prettier-plugin-sh": "^0.12.8",

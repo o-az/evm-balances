@@ -1,21 +1,44 @@
-import 'dotenv/config'
 import { Hono } from 'hono'
 import { env } from 'hono/adapter'
 import { validator } from 'hono/validator'
 import { isAddress, type Address } from 'viem'
 import { HTTPException } from 'hono/http-exception'
+import { sentry } from '@hono/sentry'
 import { publicClient } from './client'
 import type { Environment } from './types'
-import { environment } from './environment'
 import { balancesOf } from './read-contract'
 import { setMiddleware } from './middleware'
 import { chains, type Chain, invalidResponse } from './constants'
 
-const app = new Hono().basePath('/v1')
+const app = new Hono<{
+	Bindings: {
+		NODE_ENV: 'development' | 'production' | 'test'
+		PORT: string
+		SENTRY_DSN: string
+		LLAMANODES_API_KEY: string
+		// Cloudflare Workers default environment variables
+		CLOUDFLARE_API_BASE_URL: string
+	}
+}>().basePath('/v1')
 
-app.get('/', async _ => {
-	return new Response('ok', { status: 200 })
+app.use('*', async (context, next) => {
+	sentry(
+		{
+			dsn: context.env['SENTRY_DSN'],
+			environment: context.env['NODE_ENV'],
+			debug: context.env['NODE_ENV'] === 'development',
+		},
+		sentry => {
+			if (context.error) {
+				sentry.captureMessage('Sentry caught an error"')
+				sentry.captureException(context.error)
+			}
+		}
+	)
+	return next()
 })
+
+app.get('/', async _ => new Response('ok', { status: 200 }))
 
 setMiddleware(app)
 
@@ -51,7 +74,7 @@ app.get('/env', context => {
 })
 
 app.on(['GET', 'POST'], '/tmp', async context => {
-	const client = publicClient('mainnet')
+	const client = publicClient('mainnet', context.env)
 	const blockNumber = await client.getBlockNumber()
 
 	return context.json({ blockNumber }, 200)
@@ -126,7 +149,7 @@ app.post(
 			const { chain, address } = context.req.valid('param')
 			const tokens = (await context.req.json()) as Array<Address>
 
-			const client = publicClient(chain)
+			const client = publicClient(chain, context.env)
 			const balances = await balancesOf({
 				client,
 				chain,
@@ -195,7 +218,7 @@ app.post(
 			const { chain, address } = context.req.valid('param')
 			const tokens = (await context.req.json()) as Array<Address>
 
-			const client = publicClient(chain)
+			const client = publicClient(chain, context.env)
 			const balances = await balancesOf({
 				client,
 				chain,
@@ -243,7 +266,7 @@ app.get(
 	}),
 	async context => {
 		const { chain, token, address } = context.req.valid('param')
-		const client = publicClient(chain)
+		const client = publicClient(chain, context.env)
 		const balance = await balancesOf({
 			client,
 			chain,
@@ -305,10 +328,10 @@ app.all(
 	}
 )
 
-const port = environment('PORT') ?? 3_033
+const port = 3_033
 
 console.info(`\n🚀 Server ready at http://0.0.0.0:${port}\n`)
-// export default app
+
 export default {
 	port,
 	fetch: app.fetch,

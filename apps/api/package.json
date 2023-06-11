@@ -1,35 +1,35 @@
 {
 	"name": "api",
 	"version": "0.0.2",
+	"homepage": "https://balance.evm.workers.dev",
 	"scripts": {
+		"dev": "./node_modules/.bin/wrangler dev ./src/index.ts --experimental-json-config --config wrangler.json",
+		"dev:remote": "pnpm dev --remote",
 		"prebuild": "rm -rf dist",
-		"build": "tsup --config='tsup.config.ts'",
-		"dev": "./node_modules/.bin/bun --hot src/index.ts",
-		"start": "./node_modules/.bin/bun --hot dist/index.mjs",
+		"build": "./node_modules/.bin/wrangler deploy --dry-run --experimental-json-config --config wrangler.json --outdir=dist",
+		"deploy": "./node_modules/.bin/wrangler deploy ./src/index.ts --experimental-json-config --config wrangler.json",
 		"lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,md' --ignore-path .gitignore --ignore-path .eslintignore --cache",
-		"format": "prettier . --write './**/*.{js,cjs,mjs,ts,tsx,json,md,toml}' --ignore-path .gitignore --ignore-path .eslintignore --ignore-unknown --cache",
+		"format": "prettier . --write './**/*.{js,cjs,mjs,ts,tsx,json,md,toml,sh}' --ignore-path .gitignore --ignore-path .eslintignore --ignore-unknown --cache",
 		"typecheck": "tsc --noEmit",
-		"docker-local": "/bin/bash ./scripts/local-docker.sh",
-		"clean": "rm -rf .turbo dist"
+		"clean": "rm -rf .turbo dist .eslintcache node_modules"
 	},
 	"dependencies": {
 		"hono": "^3.2.5",
 		"viem": "^1.0.2"
 	},
 	"devDependencies": {
+		"@cloudflare/workers-types": "^4.20230518.0",
 		"@hono/sentry": "^0.2.1",
 		"@types/eslint": "^8.40.1",
 		"@types/node": "^20.2.6",
 		"@types/prettier": "^2.7.3",
-		"bun": "^0.6.8",
-		"dotenv": "^16.1.4",
 		"eslint": "8.42.0",
 		"eslint-config-base": "workspace:*",
 		"prettier": "^2.8.8",
 		"prettier-plugin-toml": "^0.3.1",
 		"tsconfig": "workspace:*",
-		"tsup": "^6.7.0",
-		"typescript": "^5.1.3"
+		"typescript": "^5.1.3",
+		"wrangler": "^3.1.0"
 	},
 	"private": true
 }

@@ -1,0 +1,9 @@
+
+# Cloudflare Workers .env
+PORT=3033
+NODE_ENV='development'
+SENTRY_DSN=''
+
+INFURA_KEY=''
+LLAMANODES_API_KEY=''
+ANKR_API_KEY=''
