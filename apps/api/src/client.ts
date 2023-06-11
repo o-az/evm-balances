@@ -1,9 +1,9 @@
 import { createPublicClient, http, fallback } from 'viem'
 import * as chain from 'viem/chains'
-import { chains, type Chain } from './constants'
+import { type Chain, rpcUrls } from './constants'
 
-export function publicClient(_chain: Chain) {
-	const httpTransports = chains[_chain]['rpcUrls']['http'].map(url =>
+export function publicClient(_chain: Chain, environment: Env) {
+	const httpTransports = rpcUrls(_chain, environment)['http'].map(url =>
 		http(url, {
 			key: `HTTP Transport [${_chain}]`,
 			name: `HTTP JSON-RPC [${_chain}]`,

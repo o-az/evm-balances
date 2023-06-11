@@ -8,8 +8,8 @@
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"baseUrl": ".",
-		"types": ["bun-types", "node"]
+		"types": ["@cloudflare/workers-types", "node"]
 	},
-	"include": ["src/**/*", "tsup.config.ts", "tsup.config.ts"],
+	"include": ["src/**/*", "../../_/origin-override.ts"],
 	"files": ["environment.d.ts"]
 }

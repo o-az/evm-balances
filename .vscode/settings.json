@@ -6,7 +6,8 @@
 	"typescript.preferences.quoteStyle": "single",
 	"files.associations": {
 		// tells vscode that the file can take comments
-		"base.json": "jsonc"
+		"base.json": "jsonc",
+		"wrangler.json": "jsonc"
 	},
 	// git settings
 	"git.enableCommitSigning": true,
