@@ -21,7 +21,6 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"devDependencies": {
-		"@turbo/gen": "^1.10.3",
 		"@types/eslint": "^8.40.1",
 		"@types/node": "^20.2.6",
 		"@types/prettier": "^2.7.3",
