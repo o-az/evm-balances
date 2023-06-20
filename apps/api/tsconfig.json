@@ -8,7 +8,7 @@
 		"noUnusedLocals": false,
 		"noUnusedParameters": false,
 		"baseUrl": ".",
-		"types": ["@cloudflare/workers-types"]
+		"types": ["@cloudflare/workers-types", "node"]
 	},
 	"include": ["src/**/*"],
 	"files": ["environment.d.ts"]

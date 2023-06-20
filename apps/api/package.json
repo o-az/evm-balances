@@ -15,15 +15,15 @@
 	},
 	"dependencies": {
 		"hono": "^3.2.5",
-		"viem": "^1.0.2"
+		"viem": "^1.0.7"
 	},
 	"devDependencies": {
 		"@cloudflare/workers-types": "^4.20230518.0",
 		"@hono/sentry": "^0.2.1",
-		"@types/eslint": "^8.40.1",
-		"@types/node": "^20.2.6",
+		"@types/eslint": "^8.40.2",
+		"@types/node": "^20.3.1",
 		"@types/prettier": "^2.7.3",
-		"eslint": "8.42.0",
+		"eslint": "8.43.0",
 		"eslint-config-base": "workspace:*",
 		"prettier": "^2.8.8",
 		"prettier-plugin-toml": "^0.3.1",

@@ -18,8 +18,11 @@
 	"editor.codeActionsOnSave": {
 		"source.fixAll.eslint": true
 	},
-	"editor.defaultFormatter": "esbenp.prettier-vscode",
 	"eslint.enable": true,
+	"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+	"[typescript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
 	"solidity.compileUsingRemoteVersion": "v0.8.20+commit.a1b79de6",
 	"solidity.packageDefaultDependenciesContractsDirectory": "packages/core/src",
 	"solidity.packageDefaultDependenciesDirectory": "lib",

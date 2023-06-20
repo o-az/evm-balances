@@ -4,7 +4,7 @@ import { logger } from 'hono/logger'
 import { poweredBy } from 'hono/powered-by'
 import { prettyJSON } from 'hono/pretty-json'
 
-export function setMiddleware(app: Hono<Env, {}, '/v1'>) {
+export function setMiddleware(app: Hono<Env, {}, ''>) {
 	const middleware = [
 		poweredBy(),
 		logger(_ => console.info('Request:', _)),

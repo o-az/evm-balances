@@ -23,17 +23,17 @@
 		"preinstall": "npx only-allow pnpm"
 	},
 	"devDependencies": {
-		"@types/eslint": "^8.40.1",
-		"@types/node": "^20.2.6",
+		"@types/eslint": "^8.40.2",
+		"@types/node": "^20.3.1",
 		"@types/prettier": "^2.7.3",
 		"bumpp": "^9.1.1",
-		"bun": "^0.6.8",
-		"bun-types": "^0.6.8",
-		"eslint": "8.42.0",
-		"prettier-plugin-toml": "^0.3.1",
+		"bun": "^0.6.9",
+		"bun-types": "^0.6.9",
+		"eslint": "8.43.0",
 		"eslint-config-base": "workspace:*",
 		"prettier": "^2.8.8",
 		"prettier-plugin-sh": "^0.12.8",
+		"prettier-plugin-toml": "^0.3.1",
 		"tsconfig": "workspace:*",
 		"turbo": "^1.10.3",
 		"typescript": "^5.1.3"

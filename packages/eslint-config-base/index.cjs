@@ -45,6 +45,17 @@ module.exports = {
 				},
 			},
 		],
+		// 'sort-imports': [
+		// 	'warn',
+		// 	{
+		// 		allowSeparatedGroups: true,
+		// 		memberSyntaxSortOrder: ['none', 'all', 'single', 'multiple'],
+		// 		// defaults
+		// 		ignoreCase: false,
+		// 		ignoreMemberSort: false,
+		// 		ignoreDeclarationSort: false,
+		// 	},
+		// ],
 		'array-element-newline': ['error', 'consistent'],
 		'object-curly-spacing': ['error', 'always'],
 		'no-mixed-operators': ['off'],

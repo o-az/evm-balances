@@ -12,16 +12,16 @@
 		"reinstall": "pnpm clean && pnpm install"
 	},
 	"dependencies": {
-		"@types/eslint": "^8.40.1",
-		"@typescript-eslint/eslint-plugin": "^5.59.9",
-		"@typescript-eslint/parser": "^5.59.9",
-		"eslint": "^8.42.0",
+		"@types/eslint": "^8.40.2",
+		"@typescript-eslint/eslint-plugin": "^5.60.0",
+		"@typescript-eslint/parser": "^5.60.0",
+		"eslint": "^8.43.0",
 		"eslint-config-prettier": "^8.8.0",
 		"eslint-plugin-prettier": "^4.2.1",
 		"eslint-plugin-simple-import-sort": "^10.0.0",
 		"eslint-plugin-toml": "^0.5.0",
 		"eslint-plugin-unicorn": "^47.0.0",
-		"eslint-plugin-yml": "^1.7.0",
+		"eslint-plugin-yml": "^1.8.0",
 		"toml-eslint-parser": "^0.6.0"
 	}
 }
