@@ -1,6 +1,5 @@
 import { isAddress, type Address, getAddress } from 'viem'
-import { abi as BALANCES_OF_ABI } from '../abi/balances-of'
-import { abi as ERC20_ABI } from '../abi/ierc20'
+import { ERC20_ABI, BALANCES_OF_ABI } from '../abi'
 import { it, expect, describe } from 'bun:test'
 import { repeatArray } from './utilities'
 import { type Chain, publicClient, walletClient } from './client'

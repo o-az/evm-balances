@@ -1,4 +1,4 @@
-export const abi = <const>[
+export const BALANCES_OF_ABI = <const>[
   {
     stateMutability: 'payable',
     type: 'fallback',
@@ -30,5 +30,27 @@ export const abi = <const>[
   {
     stateMutability: 'payable',
     type: 'receive',
+  },
+]
+
+export const ERC20_ABI = <const>[
+  {
+    inputs: [
+      {
+        internalType: 'address',
+        name: 'account',
+        type: 'address',
+      },
+    ],
+    name: 'balanceOf',
+    outputs: [
+      {
+        internalType: 'uint256',
+        name: '',
+        type: 'uint256',
+      },
+    ],
+    stateMutability: 'view',
+    type: 'function',
   },
 ]
