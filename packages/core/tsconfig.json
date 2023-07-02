@@ -3,5 +3,5 @@
   "compilerOptions": {
     "baseUrl": "."
   },
-  "include": ["./test/**/*", "./src/**/*", "./environment.d.ts"]
+  "include": ["./test/**/*", "./src/**/*", "./example/**/*", "./abi/**/*", "./scripts/**/*", "./environment.d.ts"]
 }

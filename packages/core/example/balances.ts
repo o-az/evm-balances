@@ -2,7 +2,7 @@
 import { getAddress, http } from 'viem'
 import { mainnet } from 'viem/chains'
 import { createPublicClient } from 'viem'
-import { abi as BALANCES_OF_ABI } from '../abi/BalancesOf'
+import { abi as BALANCES_OF_ABI } from '../abi/balances-of'
 
 main()
   .then(console.log)

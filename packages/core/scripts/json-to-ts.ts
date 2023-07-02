@@ -1,8 +1,6 @@
 #!/usr/bin/env bun
 import process from 'node:process'
 import fs from 'node:fs/promises'
-import prettier from 'prettier'
-import prettierConfig from '../.prettierrc.cjs'
 
 run()
 
@@ -13,20 +11,16 @@ async function run() {
     for (const directory of directories) {
       for (const filename of await fs.readdir(`./out/${directory}`)) {
         if (filename.endsWith('.json')) {
-          const file = await fs.readFile(`./out/${directory}/${filename}`)
-          const json = JSON.parse(file)
+          const file = await fs.readFile(`./out/${directory}/${filename}`, { encoding: 'utf8' })
+          const json = JSON.parse(file) as { abi: unknown }
           const text = `export const abi = <const>${JSON.stringify(json.abi, undefined, 2)}`
           const abiFilename = filename.replace('.json', '')
           // check if directory exists and create it if not
           await fs.mkdir(`./abi`, { recursive: true })
-          await fs.writeFile(
-            `./abi/${abiFilename}.ts`,
-            prettier.format(text, { parser: 'typescript', ...prettierConfig }),
-            {
-              encoding: 'utf8',
-              flag: 'w',
-            }
-          )
+          await fs.writeFile(`./abi/${abiFilename}.ts`, text + '\n', {
+            encoding: 'utf8',
+            flag: 'w',
+          })
         }
       }
     }
