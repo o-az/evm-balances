@@ -15,4 +15,7 @@ declare namespace NodeJS {
 }
 
 /** Cloudflare Workers */
-interface Env extends EnvironmentVariables {}
+interface Env extends EnvironmentVariables {
+  TOKEN: Fetcher
+  DEV_REMOTE: boolean
+}

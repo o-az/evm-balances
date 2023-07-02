@@ -111,7 +111,7 @@ app.on(
   async context => {
     try {
       const { chain, address } = context.req.valid('param')
-      const tokens = await getChainTokens(chain)
+      const tokens = await getChainTokens(context.env, { chain })
 
       const client = publicClient(chain, {
         env: context.env,
@@ -149,7 +149,7 @@ app.get(
   }),
   async context => {
     const { chain, token: tokenAddress, address } = context.req.valid('param')
-    const { success, data: fetchedToken } = await getChainToken(chain, tokenAddress)
+    const { success, data: fetchedToken } = await getChainToken(context.env, { chain, address: tokenAddress })
 
     if (success == false) return context.json({ ok: false, message: 'Token not found' }, 404)
 
@@ -176,7 +176,7 @@ app.all(
   }),
   async context => {
     const { address: walletAddress } = context.req.valid('param')
-    const chainsTokens = await getAllTokens()
+    const chainsTokens = await getAllTokens(context.env)
 
     const promiseResult = await Promise.allSettled(
       /**
