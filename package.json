@@ -34,7 +34,7 @@
   },
   "packageManager": "pnpm@8.6.5",
   "engines": {
-    "node": "18.16.0",
+    "node": ">=18",
     "pnpm": ">=8.6.0",
     "npm": "use-pnpm",
     "yarn": "use-pnpm"
