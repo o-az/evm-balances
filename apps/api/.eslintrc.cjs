@@ -1,5 +1,2 @@
-/** @type {import('eslint').Linter.Config} */
-module.exports = {
-	root: true,
-	extends: ['base'],
-}
+const eslintConfig = require('linters/eslint')
+module.exports = eslintConfig

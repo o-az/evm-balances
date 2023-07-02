@@ -1,15 +1,18 @@
 {
-	"extends": "tsconfig/base.json",
-	"compilerOptions": {
-		"jsx": "preserve",
-		"jsxFactory": "jsx",
-		"jsxFragmentFactory": "Fragment",
-		"jsxImportSource": "hono/jsx",
-		"noUnusedLocals": false,
-		"noUnusedParameters": false,
-		"baseUrl": ".",
-		"types": ["@cloudflare/workers-types", "node"]
-	},
-	"include": ["src/**/*"],
-	"files": ["environment.d.ts"]
+  "extends": "tsconfig/base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "jsxFactory": "jsx",
+    "jsxFragmentFactory": "Fragment",
+    "jsxImportSource": "hono/jsx",
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "baseUrl": ".",
+    "types": ["@cloudflare/workers-types", "node", "bun-types"],
+    "paths": {
+      "#/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*", "scripts/**/*"],
+  "files": ["environment.d.ts", "reset.d.ts"]
 }

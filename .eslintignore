@@ -23,3 +23,5 @@ _
 !.eslintrc.cjs
 !.prettierrc.cjs
 !*.json
+apps
+packages

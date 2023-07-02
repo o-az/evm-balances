@@ -1,8 +1,3 @@
-/** @type {import('eslint').Linter.Config} */
-module.exports = {
-	root: true,
-	extends: ['base'],
-	rules: {
-		'unicorn/filename-case': ['off'],
-	},
-}
+const eslintConfig = require('linters/eslint')
+/** @type {import('linters').ESLintConfig} */
+module.exports = eslintConfig

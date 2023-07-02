@@ -1,35 +1,33 @@
 {
-	"name": "api",
-	"version": "0.0.2",
-	"homepage": "https://balance.evm.workers.dev",
-	"scripts": {
-		"dev": "./node_modules/.bin/wrangler dev --experimental-json-config",
-		"dev:remote": "pnpm dev --remote",
-		"prebuild": "rm -rf dist",
-		"build": "./node_modules/.bin/wrangler deploy --dry-run --experimental-json-config --config wrangler.json --outdir=dist",
-		"deploy": "./node_modules/.bin/wrangler deploy ./src/index.ts --experimental-json-config --config wrangler.json",
-		"lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,yaml,toml' --ignore-path .gitignore --ignore-path .eslintignore --cache",
-		"format": "prettier . --write './**/*.{js,cjs,mjs,ts,tsx,json,md,toml,sh}' --ignore-path .gitignore --ignore-path .eslintignore --ignore-unknown --cache",
-		"typecheck": "tsc --noEmit",
-		"clean": "rm -rf .turbo dist .eslintcache node_modules"
-	},
-	"dependencies": {
-		"hono": "^3.2.5",
-		"viem": "^1.0.7"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20230518.0",
-		"@hono/sentry": "^0.2.1",
-		"@types/eslint": "^8.40.2",
-		"@types/node": "^20.3.1",
-		"@types/prettier": "^2.7.3",
-		"eslint": "8.43.0",
-		"eslint-config-base": "workspace:*",
-		"prettier": "^2.8.8",
-		"prettier-plugin-toml": "^0.3.1",
-		"tsconfig": "workspace:*",
-		"typescript": "^5.1.3",
-		"wrangler": "^3.1.0"
-	},
-	"private": true
+  "name": "api",
+  "version": "0.0.2",
+  "homepage": "https://balance.evm.workers.dev",
+  "scripts": {
+    "dev": "/node_modules/.bin/wrangler dev --local --experimental-json-config --config='wrangler.json'",
+    "dev:remote": "/node_modules/.bin/wrangler dev --remote --experimental-json-config --config='wrangler.json'",
+    "prebuild": "rm -rf dist",
+    "build": "./node_modules/.bin/wrangler deploy --dry-run --experimental-json-config --config='wrangler.json' --outdir=dist",
+    "deploy": "./node_modules/.bin/wrangler deploy ./src/index.ts --experimental-json-config --config='wrangler.json' --latest --outdir=dist",
+    "lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,yaml,toml' --ignore-path='./.eslintignore' --cache",
+    "format": "prettier . --write './**/*.{js,cjs,mjs,ts,tsx,json,md,toml,sh}' --ignore-path='./.eslintignore' --ignore-unknown --cache",
+    "typecheck": "tsc --noEmit",
+    "clean": "rm -rf .turbo dist .eslintcache node_modules"
+  },
+  "dependencies": {
+    "hono": "^3.2.7",
+    "pretty-cache-header": "^1.0.0",
+    "viem": "^1.2.7"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20230518.0",
+    "@hono/sentry": "^0.2.1",
+    "bun": "^0.6.12",
+    "bun-types": "^0.6.12",
+    "linters": "workspace:*",
+    "tsconfig": "workspace:*",
+    "typescript": "^5.1.6",
+    "wrangler": "beta"
+  },
+  "private": true,
+  "license": "GPL-3.0-or-later"
 }

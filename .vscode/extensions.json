@@ -1,9 +1,9 @@
 {
-	"recommendations": [
-		"dbaeumer.vscode-eslint",
-		"esbenp.prettier-vscode",
-		"JuanBlanco.solidity",
-		"ms-vscode.remote-explorer",
-		"github.vscode-github-actions"
-	]
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "JuanBlanco.solidity",
+    "ms-vscode.remote-explorer",
+    "github.vscode-github-actions"
+  ]
 }
