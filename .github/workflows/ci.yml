@@ -60,13 +60,18 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           workingDirectory: ./apps/api
-          command: |
-            deploy ./src/index.ts --experimental-json-config --config='wrangler.json' --latest
           wranglerVersion: 'beta'
+          preCommands: echo "Deploying API to Cloudflare Workers"
+          command: deploy ./src/index.ts --experimental-json-config --config='wrangler.json' --latest
+          postCommands: echo "Deployed API to Cloudflare Workers"
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          preCommands: echo "Deploying API to Cloudflare Workers"
-          postCommands: echo "Deployed API to Cloudflare Workers"
+          secrets: |
+            INFURA_KEY
+            LLAMANODES_API_KEY
+            ANKR_API_KEY
+            CHAINNODES_API_KEY
+            SENTRY_DSN
         env:
           NODE_ENV: 'production'
           INFURA_KEY: ${{ secrets.INFURA_KEY }}

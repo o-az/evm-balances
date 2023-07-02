@@ -70,6 +70,7 @@ app.onError((error, context) => {
 
 app.get('/env', context => {
   const environmentVariables = env(context)
+  console.log(JSON.stringify(environmentVariables, undefined, 2))
   if (environmentVariables['NODE_ENV'] !== 'development') return context.json({ NODE_ENV: 'production' }, 200)
   return context.text(JSON.stringify(environmentVariables, undefined, 2))
 })
