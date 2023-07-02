@@ -30,7 +30,7 @@ jobs:
       - name: 🔑 Checkout
         uses: actions/checkout@v3
 
-      - name: 🥐 Setup pnpm [${{ matrix.pnpm-version}}]
+      - name: 🥐 Setup pnpm [${{ matrix.pnpm-version }}]
         uses: pnpm/action-setup@v2.2.4
         with:
           version: ${{ matrix.pnpm-version }}
@@ -60,14 +60,14 @@ jobs:
 
       - name: '🔸 Cloudflare Workers - Deploy 🚀'
         working-directory: ./apps/api
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         run: |
-          wrangler deploy ./src/index.ts --experimental-json-config --config='wrangler.json' --latest --outdir='dist'
+          wrangler deploy ./src/index.ts --experimental-json-config
 
           echo ${{ secrets.SENTRY_DSN }} | wrangler --experimental-json-config secret put SENTRY_DSN
           echo ${{ secrets.INFURA_KEY }} | wrangler --experimental-json-config secret put INFURA_KEY
           echo ${{ secrets.ANKR_API_KEY }} | wrangler --experimental-json-config secret put ANKR_API_KEY
           echo ${{ secrets.LLAMANODES_API_KEY }} | wrangler --experimental-json-config secret put LLAMANODES_API_KEY
           echo ${{ secrets.CHAINNODES_API_KEY }} | wrangler --experimental-json-config secret put CHAINNODES_API_KEY
-        env:
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
