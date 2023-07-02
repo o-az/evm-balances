@@ -3,7 +3,7 @@ name: CI
 on:
   workflow_dispatch:
   push:
-    branches: [master]
+    branches: [main]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -60,9 +60,17 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           workingDirectory: ./apps/api
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           command: |
-            deploy ./src/index.ts --experimental-json-config --config wrangler.json
-
+            deploy ./src/index.ts --experimental-json-config --config='wrangler.json' --latest
+          wranglerVersion: 'beta'
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           preCommands: echo "Deploying API to Cloudflare Workers"
           postCommands: echo "Deployed API to Cloudflare Workers"
+        env:
+          NODE_ENV: 'production'
+          INFURA_KEY: ${{ secrets.INFURA_KEY }}
+          LLAMANODES_API_KEY: ${{ secrets.LLAMANODES_API_KEY }}
+          ANKR_API_KEY: ${{ secrets.ANKR_API_KEY }}
+          CHAINNODES_API_KEY: ${{ secrets.CHAINNODES_API_KEY }}
+          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}

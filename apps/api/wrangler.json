@@ -1,10 +1,17 @@
 {
-  "$schema": "https://gist.githubusercontent.com/o-az/d298a1776165407ba63ee763d32f7a89/raw/19f216730371a3db5397525abba5920278ffc600/wrangler.json",
+  "$schema": "https://gist.githubusercontent.com/o-az/d298a1776165407ba63ee763d32f7a89/raw/509659a55fc732c12a8047ffc92fb2e1a96aeebb/wrangler.json",
   "name": "balance",
   "main": "./src/index.ts",
   "compatibility_date": "2023-06-20",
   "compatibility_flags": ["nodejs_compat"],
   "placement": { "mode": "smart" },
+  "env": {
+    "production": {
+      "vars": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
   "services": [
     {
       "binding": "TOKEN",
