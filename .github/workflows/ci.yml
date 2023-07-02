@@ -60,16 +60,7 @@ jobs:
         uses: cloudflare/wrangler-action@2.0.0
         with:
           workingDirectory: ./apps/api
-          command: |
-            deploy ./src/index.ts \
-              --name 'balance' \
-              --experimental-json-config \
-              --config='wrangler.json' \
-              --tsconfig='tsconfig.json' \
-              --latest \
-              --compatibility-date='2023-07-01' \
-              --outdir='dist' \
-              --var NODE_ENV:'production'
+          command: deploy ./src/index.ts --name 'balance' --experimental-json-config --config='wrangler.json' --tsconfig='tsconfig.json' --latest --compatibility-date='2023-07-01' --outdir='dist' --var NODE_ENV:'production'
           wranglerVersion: 'beta'
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
