@@ -1,14 +1,12 @@
-# 🚧 WIP 🚧
-
-## <h1 align="center"> Multicoin Balances Smart Contract and REST server</h1>
+## <h1 align="center">EVM Multicoin Balances Smart Contract and HTTP API</h1>
 
 This is like `balanceOf` but for multiple coins. It takes 2 inputs, a wallet address and an array of coin addresses. It returns an array of balances for each coin. The first element of the array is the wallet balance of the native coin of the chain.
 
-For contract code, see [./packages/core/src/Balances.sol](./packages/core/src/BalancesOf.sol).
+For contract code, see [packages/core/src/Balances.sol](./packages/core/src/BalancesOf.sol).
 
-For usage example, see the [./packages/core/example/balances.ts](./example/balances.ts).
+For usage example, see the [packages/core/example/balances.ts](./packages/core/example/balances.ts).
 
-For REST server, see [./apps/api](./apps/api).
+For HTTP API (deployed on Cloudflare Workers), see [apps/api](./apps/api).
 
 ## Deployed Contracts
 
