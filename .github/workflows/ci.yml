@@ -42,7 +42,9 @@ jobs:
           cache: 'pnpm'
 
       - name: '📦 Install Dependencies'
-        run: pnpm install --frozen-lockfile
+        run: |
+          pnpm install --frozen-lockfile
+          pnpm add --global wrangler@beta
 
       - name: '🧹 Lint'
         run: pnpm lint
@@ -57,25 +59,15 @@ jobs:
         run: pnpm build
 
       - name: '🔸 Cloudflare Workers - Deploy 🚀'
-        uses: cloudflare/wrangler-action@2.0.0
-        with:
-          workingDirectory: ./apps/api
-          command: deploy ./src/index.ts --name 'balance' --experimental-json-config --config='wrangler.json' --tsconfig='tsconfig.json' --latest --compatibility-date='2023-07-01' --outdir='dist' --var NODE_ENV:'production'
-          wranglerVersion: 'beta'
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          preCommands: echo "Deploying API to Cloudflare Workers"
-          postCommands: echo "Deployed API to Cloudflare Workers"
-          secrets: |
-            INFURA_KEY
-            LLAMANODES_API_KEY
-            ANKR_API_KEY
-            CHAINNODES_API_KEY
-            SENTRY_DSN
+        working-directory: ./apps/api
+        run: |
+          wrangler deploy ./src/index.ts --experimental-json-config --config='wrangler.json' --latest --outdir='dist'
+
+          echo ${{ secrets.SENTRY_DSN }} | wrangler --experimental-json-config secret put SENTRY_DSN
+          echo ${{ secrets.INFURA_KEY }} | wrangler --experimental-json-config secret put INFURA_KEY
+          echo ${{ secrets.ANKR_API_KEY }} | wrangler --experimental-json-config secret put ANKR_API_KEY
+          echo ${{ secrets.LLAMANODES_API_KEY }} | wrangler --experimental-json-config secret put LLAMANODES_API_KEY
+          echo ${{ secrets.CHAINNODES_API_KEY }} | wrangler --experimental-json-config secret put CHAINNODES_API_KEY
         env:
-          NODE_ENV: 'production'
-          INFURA_KEY: ${{ secrets.INFURA_KEY }}
-          LLAMANODES_API_KEY: ${{ secrets.LLAMANODES_API_KEY }}
-          ANKR_API_KEY: ${{ secrets.ANKR_API_KEY }}
-          CHAINNODES_API_KEY: ${{ secrets.CHAINNODES_API_KEY }}
-          SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
