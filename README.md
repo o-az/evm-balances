@@ -14,7 +14,7 @@ For HTTP API (deployed on Cloudflare Workers), see [apps/api](./apps/api).
 | --- | --- |
 | Ethereum | [0x13675852Ac733AEd5679985778BE5c18E64E97FA](https://etherscan.io/address/0x13675852Ac733AEd5679985778BE5c18E64E97FA#code) |
 | Arbitrum | [0x77e883446e4cDE8955b4ce07DfCf0E9887B0e66c](https://arbiscan.io/address/0x77e883446e4cDE8955b4ce07DfCf0E9887B0e66c#code) |
-| Optimism | [0xc9ba77c9b27481b6789840a7c3128d4f691f8296](https://optimistic.etherscan.io/address/0xc9ba77c9b27481b6789840a7c3128d4f691f8296#code) |
+| Optimism | [0xc9bA77C9b27481B6789840A7C3128D4f691f8296](https://optimistic.etherscan.io/address/0xc9ba77c9b27481b6789840a7c3128d4f691f8296#code) |
 | Polygon | [0x8b08FE6F8443f7bBbEde50Ecc8B020d9e44997a2](https://polygonscan.com/address/0x8b08FE6F8443f7bBbEde50Ecc8B020d9e44997a2#code) |
 | Avalanche | [0xc9bA77C9b27481B6789840A7C3128D4f691f8296](https://snowtrace.io/address/0xc9ba77c9b27481b6789840a7c3128d4f691f8296#code) |
 | Celo | [0x5D88da6682B9088B9e31c900Be850de20cF20B11](https://celoscan.io/address/0x5d88da6682b9088b9e31c900be850de20cf20b11#code) |
