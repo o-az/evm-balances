@@ -7,9 +7,15 @@
       "outputs": ["**/dist"],
       "cache": false
     },
-    "lint": {},
-    "format": {},
-    "typecheck": {},
+    "lint": {
+      "outputs": ["dist/**", "build/**"]
+    },
+    "format": {
+      "outputs": ["dist/**", "build/**"]
+    },
+    "typecheck": {
+      "outputs": ["dist/**", "build/**"]
+    },
     "dev": {
       "cache": false,
       "persistent": true

@@ -18,6 +18,7 @@
     "postlint": "eslint --fix . --ext='js,cjs,mjs,ts,d.ts,json,yml,yaml,toml' --ignore-path='./.eslintignore' --cache",
     "postformat": "prettier . --write '*/**.{js,cjs,mjs,jsx,ts,d.ts,json,md,sh}' --ignore-path='./.eslintignore' --ignore-unknown --cache",
     "typecheck": "turbo run typecheck && tsc --noEmit",
+    "turbo-codemod": "./node_modules/@turbo/codemod/dist/cli.js --force",
     "clean": "/bin/bash ./scripts/clean.sh",
     "preinstall": "npm_config_yes=true npx only-allow pnpm"
   },
@@ -32,7 +33,7 @@
     "turbo": "^1.10.7",
     "typescript": "^5.1.6"
   },
-  "packageManager": "pnpm@8.6.5",
+  "packageManager": "pnpm@8.6.11",
   "engines": {
     "node": ">=18",
     "pnpm": ">=8.6.0",
