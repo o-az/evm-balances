@@ -16,7 +16,7 @@ export function publicClient(
       pollingInterval: seconds(4),
       batch: {
         multicall: {
-          batchSize: 1_024,
+          batchSize: 5_000,
           wait: milliseconds(0),
         },
       },

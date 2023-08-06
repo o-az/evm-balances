@@ -18,11 +18,11 @@
     "postlint": "eslint --fix . --ext='js,cjs,mjs,ts,d.ts,json,yml,yaml,toml' --ignore-path='./.eslintignore' --cache",
     "postformat": "prettier . --write '*/**.{js,cjs,mjs,jsx,ts,d.ts,json,md,sh}' --ignore-path='./.eslintignore' --ignore-unknown --cache",
     "typecheck": "turbo run typecheck && tsc --noEmit",
-    "release": "bumpp package.json packages/*/package.json apps/*/package.json hasura/package.json --commit --push --tag",
     "clean": "/bin/bash ./scripts/clean.sh",
-    "preinstall": "npx only-allow pnpm"
+    "preinstall": "npm_config_yes=true npx only-allow pnpm"
   },
   "devDependencies": {
+    "@turbo/codemod": "^1.10.12",
     "@types/node": "^20.3.3",
     "bumpp": "^9.1.1",
     "bun": "^0.6.12",
