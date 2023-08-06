@@ -9,7 +9,7 @@ module.exports = {
   jsxSingleQuote: true,
   arrowParens: 'avoid',
   singleAttributePerLine: true,
-  plugins: [require.resolve('prettier-plugin-sh'), require.resolve('prettier-plugin-toml')],
+  plugins: [require.resolve('prettier-plugin-sh')],
   overrides: [
     {
       files: '*.toml',

@@ -91,7 +91,7 @@ export async function hasBalanceOfBatch(chain: Chain, addresses: string[], envir
           },
           'latest',
         ],
-      }))
+      })),
     ),
   })
   const data = await response.json<Array<RPC_Response>>()

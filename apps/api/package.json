@@ -14,19 +14,19 @@
     "clean": "rm -rf .turbo dist .eslintcache node_modules"
   },
   "dependencies": {
-    "hono": "^3.2.7",
+    "hono": "^3.3.4",
     "pretty-cache-header": "^1.0.0",
-    "viem": "^1.2.7"
+    "viem": "^1.5.3"
   },
   "devDependencies": {
-    "@cloudflare/workers-types": "^4.20230518.0",
+    "@cloudflare/workers-types": "^4.20230801.0",
     "@hono/sentry": "^0.2.1",
-    "bun": "^0.6.12",
-    "bun-types": "^0.6.12",
+    "bun": "^0.7.2",
+    "bun-types": "^0.7.2",
     "linters": "workspace:*",
     "tsconfig": "workspace:*",
     "typescript": "^5.1.6",
-    "wrangler": "beta"
+    "wrangler": "^3.4.0"
   },
   "private": true,
   "license": "GPL-3.0-or-later"

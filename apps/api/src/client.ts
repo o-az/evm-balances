@@ -24,7 +24,7 @@ export function publicClient(
   }: {
     env: Env
     options?: PublicClientOptions
-  }
+  },
 ): ReturnType<typeof createPublicClient> {
   const httpTransports = rpcUrls(_chain, env)['http'].map(url =>
     http(url, {
@@ -34,7 +34,7 @@ export function publicClient(
       retryDelay: seconds(0.125),
       timeout: seconds(10),
       batch: true,
-    })
+    }),
   )
 
   return createPublicClient({

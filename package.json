@@ -24,13 +24,13 @@
   },
   "devDependencies": {
     "@turbo/codemod": "^1.10.12",
-    "@types/node": "^20.3.3",
+    "@types/node": "^20.4.8",
     "bumpp": "^9.1.1",
-    "bun": "^0.6.12",
-    "bun-types": "^0.6.12",
+    "bun": "^0.7.2",
+    "bun-types": "^0.7.2",
     "linters": "workspace:*",
     "tsconfig": "workspace:*",
-    "turbo": "^1.10.7",
+    "turbo": "^1.10.12",
     "typescript": "^5.1.6"
   },
   "packageManager": "pnpm@8.6.11",

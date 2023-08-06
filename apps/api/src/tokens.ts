@@ -20,7 +20,7 @@ export async function getChainToken(
   }: {
     chain: Chain
     address: Address
-  }
+  },
 ): Promise<{ success: false; data: 'unsupported' } | { success: true; data: Token }> {
   const response = await ffetch(environment)(`https://tokens.evm.workers.dev/${chain}/token/${address}`)
 

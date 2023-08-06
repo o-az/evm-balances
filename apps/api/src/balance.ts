@@ -117,7 +117,7 @@ export async function userBalances({
       ...item,
       address: getAddress(item.address),
     })),
-    chunkSize
+    chunkSize,
   ) as Array<Array<Token>>
 
   const balancesResults = await Promise.allSettled(
@@ -130,7 +130,7 @@ export async function userBalances({
       })
       sleep(1)
       return result
-    })
+    }),
   )
 
   const balances: Array<TokenBalance> = []

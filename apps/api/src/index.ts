@@ -28,7 +28,7 @@ app.get(
       staleIfError: '12hours',
       staleWhileRevalidate: '1year',
     }),
-  })
+  }),
 )
 
 app.use('*', async (context, next) => {
@@ -43,7 +43,7 @@ app.use('*', async (context, next) => {
         sentry.captureMessage('Sentry caught an error"')
         sentry.captureException(context.error)
       }
-    }
+    },
   )
   return next()
 })
@@ -121,14 +121,14 @@ app.on(
 
       return context.json(
         balances.filter(item => item.balance !== '0'),
-        200
+        200,
       )
     } catch (error) {
       const errorMessage = error instanceof Error ? error.message : error
       console.error(errorMessage)
       return context.json({ ok: false, message: errorMessage }, 500)
     }
-  }
+  },
 )
 
 app.get(
@@ -158,7 +158,7 @@ app.get(
 
     const balance = await balanceOf({ client, walletAddress: address, token: fetchedToken })
     return context.json(balance, 200)
-  }
+  },
 )
 
 /**
@@ -192,15 +192,18 @@ app.all(
           walletAddress,
           tokens,
         })
-      })
+      }),
     )
 
     const fulfilledResults = promiseResult.filter(isFulfilled).flatMap(result => result.value)
 
-    const chainBalances = chainsTuples.reduce((accumulator, [, chainId]) => {
-      accumulator[chainId] = []
-      return accumulator
-    }, {} as Record<ChainID, Array<TokenBalance>>)
+    const chainBalances = chainsTuples.reduce(
+      (accumulator, [, chainId]) => {
+        accumulator[chainId] = []
+        return accumulator
+      },
+      {} as Record<ChainID, Array<TokenBalance>>,
+    )
 
     for (const [, tokenBalance] of fulfilledResults.entries()) {
       if (tokenBalance.balance == '0' || !isNotFalsy(tokenBalance)) continue
@@ -208,7 +211,7 @@ app.all(
     }
 
     return context.json(chainBalances, 200)
-  }
+  },
 )
 
 const port = 8_787

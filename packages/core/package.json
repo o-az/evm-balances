@@ -7,19 +7,19 @@
     "deploy-local": "bun lint && forge build && /bin/bash ./scripts/deploy.sh",
     "deploy-local-build": "pnpm deploy-local && bun ./scripts/json-to-ts.ts",
     "lint": "eslint --fix . --ext='js,cjs,mjs,ts,cts,mts,d.ts,json,yaml,toml' --ignore-path .gitignore --ignore-path .eslintignore --cache",
-    "format": "prettier . --write './**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,md,sol}' --ignore-path .gitignore --ignore-path .eslintignore --ignore-unknown --cache",
+    "format": "prettier . --write './**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx,json,md,sol}' --ignore-path='./.eslintignore' --ignore-path='./.gitignore' --ignore-unknown --cache",
     "typecheck": "tsc --noEmit",
     "clean": "rm -rf out cache cache_hardhat artifacts"
   },
   "devDependencies": {
-    "@types/node": "^20.3.3",
-    "bun": "^0.6.12",
+    "@types/node": "^20.4.8",
+    "bun": "^0.7.2",
     "dotenv": "^16.3.1",
     "linters": "workspace:*",
-    "solhint": "^3.4.1",
+    "solhint": "^3.5.1",
     "tsconfig": "workspace:*",
     "typescript": "^5.1.6",
-    "viem": "^1.2.7"
+    "viem": "^1.5.3"
   },
   "dependencies": {
     "@viem/anvil": "^0.0.6"

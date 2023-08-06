@@ -32,6 +32,9 @@
   },
   "search.exclude": {
     "**/node_modules": true,
-    "pnpm-lock.yaml": true
+    "pnpm-lock.yaml": true,
+    "**/.turbo": true,
+    ".eslintcache": true,
+    ".prettiercache": true,
   }
 }

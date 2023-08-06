@@ -24,19 +24,18 @@
     "reinstall": "pnpm clean && pnpm install"
   },
   "dependencies": {
-    "prettier-plugin-sh": "^0.12.8",
-    "prettier-plugin-toml": "^0.3.1",
-    "@types/eslint": "^8.40.2",
-    "@typescript-eslint/eslint-plugin": "^5.60.1",
-    "@typescript-eslint/parser": "^5.60.1",
-    "eslint": "^8.44.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^4.2.1",
+    "@types/eslint": "^8.44.2",
+    "@typescript-eslint/eslint-plugin": "^6.2.1",
+    "@typescript-eslint/parser": "^6.2.1",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-toml": "^0.5.0",
-    "eslint-plugin-unicorn": "^47.0.0",
+    "eslint-plugin-unicorn": "^48.0.1",
     "eslint-plugin-yml": "^1.8.0",
-    "toml-eslint-parser": "^0.6.0",
-    "solhint-plugin-prettier": "^0.0.5"
+    "prettier-plugin-sh": "^0.13.1",
+    "solhint-plugin-prettier": "^0.0.5",
+    "toml-eslint-parser": "^0.6.0"
   }
 }
