@@ -1,3 +1,7 @@
+> [!WARNING]
+> Archiving due to massive and unprecedented volume of requests in the span of the last 10 days, after 3 years of quiet. All the 3rd party Node provider API keys I set for this have met their limits. I'm happy to help you fork and get his deployed if you need it.
+
+
 ## <h1 align="center">EVM Multicoin Balances Smart Contract and HTTP API</h1>
 
 This is like `balanceOf` but for multiple coins. It takes 2 inputs, a wallet address and an array of coin addresses. It returns an array of balances for each coin. The first element of the array is the wallet balance of the native coin of the chain.
